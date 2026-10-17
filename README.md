@@ -27,7 +27,7 @@ Editar archivos → preparar cambios → crear un commit → compartirlo en GitH
 
 ### Ver el manual en el navegador
 
-Abre [`Manual/index.html`](index.html) directamente en tu navegador. No necesitas instalar dependencias ni levantar un servidor.
+Abre [`index.html`](index.html) directamente en tu navegador. No necesitas instalar dependencias ni levantar un servidor.
 
 También puedes clonar el repositorio y abrirlo desde la terminal:
 
