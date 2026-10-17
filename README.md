@@ -3,7 +3,7 @@
 > Una guía visual, clara y directa para aprender a versionar proyectos, colaborar en equipo y publicar en GitHub.
 
 <p align="center">
-  <a href="./Manual/index.html">
+  <a href="index.html">
     <img src="https://img.shields.io/badge/📖%20Abrir%20manual-0969DA?style=for-the-badge&logo=gitbook&logoColor=white" alt="Abrir manual">
   </a>
   <a href="https://github.com/mikeaprilee">
