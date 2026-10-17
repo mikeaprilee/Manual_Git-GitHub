@@ -36,9 +36,9 @@ git clone https://github.com/mikeaprilee/Manual_Git-GitHub.git
 cd Manual_Git-GitHub
 ```
 
-Después, abre `Manual/index.html` con tu navegador favorito.
+Después, abre `index.html` con tu navegador favorito.
 
-> 💡 **Consejo:** si utilizas VS Code, puedes abrir la carpeta del repositorio y hacer clic sobre `Manual/index.html`.
+> 💡 **Consejo:** si utilizas VS Code, puedes abrir la carpeta del repositorio y hacer clic sobre `index.html`.
 
 ## ✨ ¿Qué encontrarás?
 
@@ -123,7 +123,6 @@ No hace falta experiencia previa: los conceptos se presentan de forma progresiva
 
 ```text
 Manual_Git-GitHub/
-├── Manual/
 │   └── index.html    # Manual completo e interactivo
 │   └── LICENSE       # Licencia MIT
 └── README.md         # Esta presentación
@@ -136,14 +135,14 @@ Las mejoras son bienvenidas. Si encuentras un error o quieres proponer una expli
 1. Crea un *fork* del repositorio.
 2. Crea una rama: `git switch -c mejora-del-manual`.
 3. Realiza cambios pequeños y descriptivos.
-4. Comprueba que `Manual/index.html` sigue abriéndose correctamente.
+4. Comprueba que `index.html` sigue abriéndose correctamente.
 5. Abre una Pull Request explicando qué has mejorado.
 
 También puedes abrir una [issue](https://github.com/mikeaprilee/Manual_Git-GitHub/issues) para proponer contenidos o comunicar un problema.
 
 ## 📄 Licencia
 
-Este proyecto se distribuye bajo la [licencia MIT](./Manual/LICENSE). Puedes utilizar, adaptar y compartir el material respetando sus condiciones.
+Este proyecto se distribuye bajo la [licencia MIT](LICENSE). Puedes utilizar, adaptar y compartir el material respetando sus condiciones.
 
 ---
 
