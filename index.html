@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Práctico Git y GitHub - @mikeaprilee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #e8eef5;
+            --bg-doc: #ffffff;
+            --text-main: #1f2328;
+            --text-muted: #59636e;
+            --primary: #0969da;
+            --primary-hover: #0550ae;
+            --primary-soft: #ddf4ff;
+            --success: #1a7f37;
+            --danger: #cf222e;
+            --danger-bg: #ffebe9;
+            --bg-light: #f6f8fa;
+            --bg-zebra: #f9fbfd;
+            --bg-hover: #eef5fc;
+            --border-color: #d0d7de;
+            --code-bg: #161b22;
+            --code-text: #e6edf3;
+            --code-border: #30363d;
+            --shadow-doc: 0 12px 36px rgba(31, 35, 40, 0.12);
+        }
+        [data-theme="dark"] {
+            --bg-body: #010409;
+            --bg-doc: #0d1117;
+            --text-main: #e6edf3;
+            --text-muted: #8b949e;
+            --primary: #4493f8;
+            --primary-hover: #58a6ff;
+            --primary-soft: rgba(56, 139, 253, 0.15);
+            --success: #3fb950;
+            --danger: #f85149;
+            --danger-bg: rgba(248, 81, 73, 0.15);
+            --bg-light: #161b22;
+            --bg-zebra: #12171e;
+            --bg-hover: #1f2937;
+            --border-color: #30363d;
+            --code-bg: #010409;
+            --code-text: #e6edf3;
+            --code-border: #30363d;
+            --shadow-doc: 0 12px 36px rgba(0, 0, 0, 0.6);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', 'Segoe UI', 'Calibri', Arial, sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+            font-size: 10.8pt;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+        .document {
+            background-color: var(--bg-doc);
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 50px 65px;
+            box-shadow: var(--shadow-doc);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: background-color 0.25s ease, border-color 0.25s ease;
+        }
+        h1,
+        h2,
+        h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        h1 {
+            font-size: 24pt;
+            margin-top: 0;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 8px;
+        }
+        h2 {
+            font-size: 15.5pt;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 6px;
+            margin-top: 42px;
+            scroll-margin-top: 20px;
+        }
+        h3 {
+            font-size: 12.5pt;
+            margin-top: 26px;
+            color: var(--text-main);
+        }
+        p {
+            margin: 0 0 12px 0;
+        }
+        ul,
+        ol {
+            margin: 0 0 14px 0;
+            padding-left: 24px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+        .masthead {
+            margin-bottom: 25px;
+        }
+        .masthead p.subtitle {
+            font-size: 12pt;
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .toolbar-author {
+            font-size: 10pt;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .toolbar-author:hover {
+            color: var(--primary);
+        }
+        .toolbar-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .btn-action {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 7px 13px;
+            border-radius: 6px;
+            font-size: 9.5pt;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-action:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .btn-print {
+            background-color: var(--primary);
+            color: #ffffff;
+            border: 1px solid var(--primary);
+            padding: 7px 14px;
+            border-radius: 6px;
+            font-size: 9.5pt;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .btn-print:hover {
+            background-color: var(--primary-hover);
+        }
+        .toc-box {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 22px 0;
+        }
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 8px 16px;
+            font-size: 9.8pt;
+        }
+        .toc-grid a {
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 3px 6px;
+            border-radius: 4px;
+            transition: background-color 0.15s, color 0.15s;
+        }
+        .toc-grid a:hover {
+            color: var(--primary);
+            background-color: var(--bg-hover);
+        }
+        .callout {
+            background-color: var(--bg-light);
+            border-left: 4px solid var(--primary);
+            padding: 13px 18px;
+            font-size: 10.2pt;
+            margin: 16px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .callout-warning {
+            border-left-color: var(--danger);
+            background-color: var(--danger-bg);
+        }
+        .code-block {
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 100%;
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            border: 1px solid var(--code-border);
+            border-radius: 8px;
+            padding: 14px 16px;
+            font-family: 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
+            font-size: 9.5pt;
+            line-height: 1.55;
+            white-space: pre-line;
+            overflow-wrap: break-word;
+            overflow-x: hidden;
+            margin: 12px 0;
+            text-align: left;
+            position: relative;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 8.5pt;
+            font-weight: 500;
+            padding: 4px 10px;
+            border: 1px solid #484f58;
+            border-radius: 5px;
+            background: #21262d;
+            color: #c9d1d9;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .copy-btn:hover {
+            background: #30363d;
+            color: #ffffff;
+            border-color: #8b949e;
+        }
+        .inline-code {
+            font-family: 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
+            background-color: var(--bg-light);
+            color: var(--primary);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 9.3pt;
+            border: 1px solid var(--border-color);
+        }
+        .git-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 18px 0;
+            flex-wrap: wrap;
+            gap: 8px;
+            text-align: center;
+        }
+        .flow-step {
+            background: var(--bg-doc);
+            border: 2px solid var(--primary);
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-weight: 700;
+            font-size: 9.5pt;
+            flex: 1;
+            min-width: 115px;
+        }
+        .flow-step small {
+            display: block;
+            font-weight: 400;
+            color: var(--text-muted);
+            font-size: 8.2pt;
+            margin-top: 2px;
+        }
+        .flow-remote {
+            background: var(--primary);
+            color: #ffffff;
+        }
+        .flow-remote small {
+            color: #e6f0ff;
+        }
+        .flow-arrow {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 11pt;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+        .flow-arrow span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.8pt;
+            background: var(--bg-doc);
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            white-space: nowrap;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 9.8pt;
+            margin: 16px 0;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .data-table th,
+        .data-table td {
+            border-bottom: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            padding: 10px 14px;
+            text-align: left;
+            vertical-align: top;
+        }
+        .data-table th:last-child,
+        .data-table td:last-child {
+            border-right: none;
+        }
+        .data-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .data-table th {
+            background-color: var(--bg-light);
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .data-table tbody tr:nth-child(even) {
+            background-color: var(--bg-zebra);
+        }
+        .data-table tbody tr:hover {
+            background-color: var(--bg-hover);
+        }
+        .flex-cols {
+            display: flex;
+            gap: 20px;
+            margin: 16px 0;
+        }
+        .flex-cols>div {
+            flex: 1;
+            min-width: 0;
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            padding: 16px;
+            border-radius: 8px;
+        }
+        .doc-footer {
+            margin-top: 45px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 9.5pt;
+            color: var(--text-muted);
+        }
+        .doc-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .doc-footer a:hover {
+            text-decoration: underline;
+        }
+        .github-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #24292f;
+            color: #ffffff !important;
+            padding: 7px 14px;
+            border-radius: 6px;
+            font-size: 9.5pt;
+            text-decoration: none !important;
+            transition: background-color 0.2s;
+        }
+        .github-badge:hover {
+            background-color: var(--primary);
+        }
+        .btn-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background-color: var(--primary);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 16px;
+            font-size: 9.5pt;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.2s ease;
+            text-decoration: none;
+        }
+        .btn-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .btn-top:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .document {
+                padding: 24px 18px;
+            }
+            h1 {
+                font-size: 18pt;
+            }
+            h2 {
+                font-size: 14pt;
+            }
+            .flex-cols {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .git-flow {
+                flex-direction: column;
+            }
+            .flow-arrow {
+                transform: rotate(90deg);
+                margin: 6px 0;
+            }
+            .flow-arrow span {
+                transform: rotate(-90deg);
+            }
+            .data-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            .doc-footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        @media print {
+            @page {
+                margin: 15mm;
+            }
+            body {
+                background-color: #ffffff !important;
+                color: #1f2328 !important;
+                padding: 0;
+            }
+            .document {
+                background-color: #ffffff !important;
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0;
+                max-width: 100%;
+            }
+            .code-block {
+                background-color: #f6f8fa !important;
+                color: #1f2328 !important;
+                border: 1px solid #d0d7de !important;
+                padding: 12px 15px !important;
+                box-shadow: none !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            h2,
+            h3 {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+            p,
+            li {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            .callout,
+            .code-block,
+            .data-table,
+            tr,
+            .flex-cols,
+            .git-flow,
+            .checklist-card,
+            .challenge-card,
+            .doc-footer {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body id="inicio">
+    <div class="document">
+        <div class="toolbar no-print">
+            <a class="toolbar-author" href="https://github.com/mikeaprilee" target="_blank" rel="noopener noreferrer">
+                Por @mikeaprilee en GitHub
+            </a>
+            <div class="toolbar-actions">
+                <button class="btn-action" id="theme-toggle" onclick="toggleTheme()">🌙 Modo Oscuro</button>
+                <button class="btn-print" onclick="window.print()">🖨️ Guardar PDF / Imprimir</button>
+            </div>
+        </div>
+        <div class="masthead">
+            <h1>MANUAL PRÁCTICO: Git y GitHub</h1>
+            <p class="subtitle">Aprende a guardar versiones, colaborar en equipo y publicar tus proyectos</p>
+        </div>
+        <div class="callout">
+            <strong>💡 Idea clave:</strong> Git guarda el historial de cambios en tu ordenador. GitHub guarda una copia
+            online en la nube y facilita colaborar con otras personas.
+        </div>
+        <div class="toc-box no-print">
+            <strong style="color: var(--primary); display: block; margin-bottom: 10px;"> Índice rápido del
+                manual</strong>
+            <div class="toc-grid">
+                <a href="#seccion-1">1. Qué son Git y GitHub</a>
+                <a href="#seccion-2">2. Preparación inicial</a>
+                <a href="#seccion-3">3. Conceptos básicos</a>
+                <a href="#seccion-4">4. Primer proyecto paso a paso</a>
+                <a href="#seccion-5">5. Comandos esenciales</a>
+                <a href="#seccion-6">6. Ramas y trabajo en equipo</a>
+                <a href="#seccion-7">7. GitHub desde la web</a>
+                <a href="#seccion-8">8. Pull requests y revisión</a>
+                <a href="#seccion-9">9. Conflictos y cómo resolverlos</a>
+                <a href="#seccion-10">10. Publicar y GitHub Pages</a>
+                <a href="#seccion-11">11. Buenas prácticas y seguridad</a>
+                <a href="#seccion-12">12. Errores frecuentes</a>
+                <a href="#seccion-13">13. Chuleta final y reto práctico</a>
+            </div>
+        </div>
+        <h2 id="seccion-1">1. Qué son Git y GitHub</h2>
+        <p><strong>Git</strong> es un sistema de control de versiones. Guarda "fotografías" de los cambios de un
+            proyecto para poder saber qué cambió, cuándo cambió y quién lo cambió. También permite volver atrás sin
+            perder el trabajo.</p>
+        <p><strong>GitHub</strong> es una plataforma web que aloja repositorios Git. Añade herramientas para compartir
+            código, trabajar con ramas, revisar cambios, organizar tareas y publicar páginas.</p>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th style="width: 28%;">Elemento</th>
+                    <th>Explicación sencilla</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Repositorio</strong></td>
+                    <td>Carpeta del proyecto junto con todo su historial de cambios.</td>
+                </tr>
+                <tr>
+                    <td><strong>Commit</strong></td>
+                    <td>Punto guardado del historial. Es como una foto con un mensaje.</td>
+                </tr>
+                <tr>
+                    <td><strong>Rama (branch)</strong></td>
+                    <td>Línea de trabajo separada para desarrollar sin romper la versión principal.</td>
+                </tr>
+                <tr>
+                    <td><strong>Repositorio remoto</strong></td>
+                    <td>Copia del repositorio que está en GitHub u otro servidor.</td>
+                </tr>
+                <tr>
+                    <td><strong>Repositorio local</strong></td>
+                    <td>Copia que tienes en tu ordenador.</td>
+                </tr>
+                <tr>
+                    <td><strong>Pull request (PR)</strong></td>
+                    <td>Propuesta para integrar los cambios de una rama en otra.</td>
+                </tr>
+                <tr>
+                    <td><strong>Clonar</strong></td>
+                    <td>Descargar un repositorio remoto al ordenador.</td>
+                </tr>
+                <tr>
+                    <td><strong>Push / Pull</strong></td>
+                    <td>Enviar cambios al remoto / traer cambios del remoto.</td>
+                </tr>
+                <tr>
+                    <td><strong>Fork (Bifurcación)</strong></td>
+                    <td>Copia de un repositorio ajeno en tu propia cuenta de GitHub para trabajar sin afectar al
+                        original.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="callout">
+            <strong> Regla mental:</strong> Edita archivos → prepara cambios → crea un commit → sube el commit a GitHub.
+        </div>
+        <h2 id="seccion-2">2. Preparación inicial</h2>
+        <h3>2.1 Instalar Git</h3>
+        <p>Descarga Git desde
+            <a class="toolbar-author" href="https://git-scm.com/downloads" target="_blank"
+                rel="noopener noreferrer">https://git-scm.com/downloads</a>
+            e instálalo con las opciones recomendadas. Después abre Git Bash, PowerShell o la terminal de VS Code y
+            comprueba la instalación:
+        </p>
+        <div class="code-block">git --version</div>
+        <p>Si aparece una versión, Git está listo. Si no, cierra y vuelve a abrir la terminal o revisa la instalación.
+        </p>
+        <h3>2.2 Crear una cuenta de GitHub</h3>
+        <ul>
+            <li>Entra en <em>https://github.com</em> y pulsa <strong>Sign up</strong>.</li>
+            <li>Usa un correo que puedas verificar y activa la autenticación en dos pasos (2FA).</li>
+            <li>Elige un nombre de usuario profesional y fácil de recordar.</li>
+        </ul>
+        <h3>2.3 Configurar tu identidad de Git</h3>
+        <div class="code-block">git config --global user.name "Tu Nombre"
+git config --global user.email "tu-correo@example.com"
+git config --global init.defaultBranch main</div>
+        <p>Comprueba la configuración con:</p>
+        <div class="code-block">git config --global --list</div>
+        <div class="callout callout-warning">
+            <strong>Importante:</strong> El correo usado en los commits puede aparecer públicamente. Puedes usar el
+            correo <em>noreply</em> de GitHub desde <em>Settings → Emails</em> si quieres ocultar tu correo personal.
+        </div>
+        <h3>2.4 ¿Qué es GitHub CLI?</h3>
+        <p><strong>GitHub CLI</strong> es la herramienta oficial de GitHub para trabajar con la plataforma desde una
+            terminal. Su ejecutable se llama <span class="inline-code">gh</span>. Permite consultar y administrar
+            repositorios, Issues, Pull Requests, revisiones y GitHub Actions sin tener que abrir el navegador para cada
+            operación.</p>
+        <p>GitHub CLI no sustituye a Git: se complementan. <span class="inline-code">git commit</span>, <span
+                class="inline-code">git branch</span> y <span class="inline-code">git merge</span> trabajan con el
+            historial del repositorio; <span class="inline-code">gh pr</span>, <span class="inline-code">gh issue</span>
+            y <span class="inline-code">gh run</span> trabajan con los servicios de GitHub. Algunos comandos de <span
+                class="inline-code">gh</span>, como <span class="inline-code">gh repo clone</span>, utilizan Git
+            internamente para descargar o enviar el código.</p>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Herramienta</th>
+                    <th>Pregunta a la que responde</th>
+                    <th style="width: 32%;">Ejemplos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Git</strong></td>
+                    <td>¿Qué cambios tiene mi proyecto y cómo organizo su historial?</td>
+                    <td><span class="inline-code">git status</span>, <span class="inline-code">git commit</span>, <span
+                            class="inline-code">git switch</span></td>
+                </tr>
+                <tr>
+                    <td><strong>GitHub CLI</strong></td>
+                    <td>¿Qué ocurre en GitHub y cómo interactúo con repositorios, PR o Issues?</td>
+                    <td><span class="inline-code">gh pr list</span>, <span class="inline-code">gh issue create</span>,
+                        <span class="inline-code">gh run watch</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>2.5 Instalar y autenticar GitHub CLI</h3>
+        <p>Instala GitHub CLI desde <a class="toolbar-author" href="https://cli.github.com/ " target="_blank"
+                rel="noopener noreferrer">https://cli.github.com/ </a> o mediante el gestor de paquetes de tu sistema.
+            Después comprueba que está disponible:</p>
+        <div class="code-block">gh --version</div>
+        <p>Inicia sesión con el asistente interactivo:</p>
+        <div class="code-block">gh auth login</div>
+        <ol>
+            <li>Selecciona <em>GitHub.com</em> como servidor.</li>
+            <li>Elige <em>HTTPS</em> para que Git use una dirección HTTPS al comunicarse con GitHub.</li>
+            <li>Selecciona el inicio de sesión mediante navegador y copia el código que muestre la terminal.</li>
+            <li>Autoriza GitHub CLI en el navegador y vuelve a la terminal.</li>
+        </ol>
+        <p>Comprueba la cuenta y el método de autenticación:</p>
+        <div class="code-block">gh auth status</div>
+        <p>La autenticación permite que <span class="inline-code">gh</span> actúe en tu nombre, pero no concede permisos
+            que tu cuenta no tenga. En un repositorio privado, por ejemplo, solo podrás operar si tu usuario tiene
+            acceso a ese repositorio.</p>
+        <div class="callout callout-warning">
+            <strong>Importante:</strong> GitHub CLI guarda las credenciales usando el mecanismo seguro disponible en el
+            sistema cuando es posible. No copies tokens en comandos, scripts compartidos ni capturas de pantalla. Si
+            sospechas que una credencial se ha expuesto, revócala desde GitHub y vuelve a autenticarte.
+        </div>
+        <h3>2.6 Comandos principales de GitHub CLI</h3>
+        <p>Los subcomandos se organizan por recurso: <span class="inline-code">gh repo</span> para repositorios, <span
+                class="inline-code">gh pr</span> para Pull Requests, <span class="inline-code">gh issue</span> para
+            Issues y <span class="inline-code">gh run</span> para ejecuciones de Actions.</p>
+        <div class="code-block">gh repo view --web
+gh pr list
+gh pr view 123 --web
+gh issue create --title "Corrige el formulario" --body "Describe el problema"
+gh issue list
+gh run list
+gh run watch</div>
+        <ul>
+            <li><span class="inline-code">gh repo view --web</span> abre en el navegador el repositorio asociado a la
+                carpeta actual.</li>
+            <li><span class="inline-code">gh pr list</span> muestra las Pull Requests del repositorio actual; <span
+                    class="inline-code">gh pr view 123 --web</span> abre la número 123.</li>
+            <li><span class="inline-code">gh issue create</span> crea una tarea o incidencia sin rellenar el formulario
+                manualmente en la web.</li>
+            <li><span class="inline-code">gh run list</span> muestra ejecuciones recientes de GitHub Actions y <span
+                    class="inline-code">gh run watch</span> permite seguir una ejecución en curso.</li>
+        </ul>
+        <h3>2.7 Crear una Pull Request desde la terminal</h3>
+        <p>Después de crear commits y subir la rama con Git, puedes abrir la Pull Request con GitHub CLI:</p>
+        <div class="code-block">git status
+git push -u origin feature/mi-tarea
+gh pr create --base main --head feature/mi-tarea --title "Añade formulario de contacto" --body "Explica los cambios y cómo probarlos"</div>
+        <p><span class="inline-code">--base</span> indica la rama que recibirá los cambios y <span
+                class="inline-code">--head</span> la rama que los contiene. Si omites opciones, <span
+                class="inline-code">gh pr create</span> ofrece un asistente interactivo. Antes de crearla, revisa que la
+            rama y el repositorio sean los correctos.</p>
+        <div class="callout">
+            <strong>💡 Regla rápida:</strong> usa <span class="inline-code">git</span> para trabajar con archivos,
+            commits y ramas; usa <span class="inline-code">gh</span> para comunicar esos cambios a GitHub y gestionar la
+            colaboración alrededor del código.
+        </div>
+        <h3>2.8 Desconectar o cambiar de cuenta</h3>
+        <div class="code-block">gh auth logout
+gh auth login</div>
+        <p>Usa <span class="inline-code">gh auth logout</span> si compartes el ordenador o necesitas cerrar la sesión
+            actual. Si trabajas con varias cuentas, revisa siempre el resultado de <span class="inline-code">gh auth
+                status</span> antes de crear repositorios, Issues o Pull Requests.</p>
+        <h2 id="seccion-3">3. Conceptos básicos</h2>
+        <p>Un repositorio tiene tres zonas locales principales más el servidor remoto en GitHub:</p>
+        <div class="git-flow">
+            <div class="flow-step">Working Tree<small>Editas archivos</small></div>
+            <div class="flow-arrow"><span>git add</span>➔</div>
+            <div class="flow-step">Staging Area<small>Preparas cambios</small></div>
+            <div class="flow-arrow"><span>git commit</span>➔</div>
+            <div class="flow-step">Repo Local<small>Historial guardado</small></div>
+            <div class="flow-arrow"><span>git push</span>➔</div>
+            <div class="flow-step flow-remote">GitHub<small>Repo Remoto</small></div>
+        </div>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Zona</th>
+                    <th>Qué contiene</th>
+                    <th style="width: 25%;">Comando habitual</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Working tree</strong></td>
+                    <td>Los archivos que estás editando actualmente.</td>
+                    <td><span class="inline-code">git status</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Staging area</strong></td>
+                    <td>Cambios seleccionados para el próximo commit.</td>
+                    <td><span class="inline-code">git add</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Repositorio local</strong></td>
+                    <td>Commits guardados en el historial de tu equipo.</td>
+                    <td><span class="inline-code">git commit</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>3.1 Cómo leer git status</h3>
+        <div class="code-block">git status</div>
+        <p>Este comando es tu principal herramienta de orientación. Indica la rama actual, cambios modificados, archivos
+            nuevos y si tu rama está por delante o por detrás de GitHub. Acostúmbrate a ejecutarlo antes y después de
+            cada operación importante.</p>
+        <div class="callout">
+            <strong>Cómo interpretar el resultado:</strong> <em>Changes not staged for commit</em> son cambios que aún
+            no has preparado; <em>Changes to be committed</em> ya están en <em>staging</em>; y <em>Untracked files</em>
+            son archivos nuevos que Git todavía no sigue. Si la salida dice <em>working tree clean</em>, no hay cambios
+            locales pendientes.
+        </div>
+        <h2 id="seccion-4">4. Primer proyecto paso a paso</h2>
+        <h3>Opción A: empezar desde una carpeta local</h3>
+        <div class="code-block">cd ruta/de/tu/proyecto
+git init
+git add .
+git commit -m "Primer commit"</div>
+        <p>Después crea un repositorio vacío en GitHub: <em>New repository</em>. No marques README si ya tienes archivos
+            locales, para evitar un conflicto inicial.</p>
+        <div class="code-block">git branch -M main
+git remote add origin https://github.com/USUARIO/REPOSITORIO.git
+git push -u origin main</div>
+        <h3>Opción B: descargar un repositorio existente</h3>
+        <div class="code-block">git clone https://github.com/USUARIO/REPOSITORIO.git
+cd REPOSITORIO</div>
+        <p>Con GitHub CLI también puedes usar: <span class="inline-code">gh repo clone USUARIO/REPOSITORIO</span></p>
+        <h3>4.1 Flujo diario recomendado</h3>
+        <ol>
+            <li>Trae los cambios recientes: <span class="inline-code">git pull --rebase origin main</span></li>
+            <li>Crea una rama para tu tarea: <span class="inline-code">git switch -c nombre-de-la-tarea</span></li>
+            <li>Edita y guarda tus archivos.</li>
+            <li>Revisa lo que has cambiado: <span class="inline-code">git diff</span> y <span class="inline-code">git
+                    status</span></li>
+            <li>Prepara solo los archivos correctos: <span class="inline-code">git add archivo</span> o <span
+                    class="inline-code">git add .</span></li>
+            <li>Crea un commit pequeño: <span class="inline-code">git commit -m "Añade formulario de contacto"</span>
+            </li>
+            <li>Sube la rama: <span class="inline-code">git push -u origin nombre-de-la-tarea</span></li>
+            <li>Abre una Pull Request en GitHub.</li>
+        </ol>
+        <div class="callout">
+            <strong>💡 Consejo:</strong> Haz commits pequeños. Un commit debería representar un cambio coherente, no una
+            mezcla de diez tareas.
+        </div>
+        <h2 id="seccion-5">5. Comandos esenciales</h2>
+        <p>Lista de referencia rápida con los comandos que usarás más a menudo en tu día a día. La palabra
+            <em>archivo</em> representa una ruta real, <em>rama</em> un nombre de rama y <em>URL</em> la dirección del
+            repositorio remoto. No escribas literalmente esos marcadores.
+        </p>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th style="width: 34%;">Comando</th>
+                    <th>Para qué sirve</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="inline-code">git init</span></td>
+                    <td>Convierte una carpeta en repositorio Git.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git clone URL</span></td>
+                    <td>Descarga un repositorio.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git status</span></td>
+                    <td>Muestra el estado actual.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git add archivo</span></td>
+                    <td>Prepara un archivo concreto.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git add .</span></td>
+                    <td>Prepara todos los cambios de la carpeta.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git commit -m "..."</span></td>
+                    <td>Guarda un punto del historial.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git log --oneline</span></td>
+                    <td>Muestra el historial resumido en una línea por commit.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git diff</span></td>
+                    <td>Muestra cambios aún no preparados.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git diff --staged</span></td>
+                    <td>Muestra cambios preparados para el próximo commit.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git branch</span></td>
+                    <td>Lista las ramas locales.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git switch -c rama</span></td>
+                    <td>Crea y cambia a una rama nueva.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git switch main</span></td>
+                    <td>Cambia a otra rama existente.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git merge rama</span></td>
+                    <td>Integra una rama en la actual.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git remote -v</span></td>
+                    <td>Muestra los repositorios remotos configurados.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git pull</span></td>
+                    <td>Trae e integra cambios remotos.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git push</span></td>
+                    <td>Sube tus commits al remoto.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git stash</span> / <span class="inline-code">git stash pop</span></td>
+                    <td>Guarda temporalmente cambios sin hacer commit / los recupera después.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git restore archivo</span></td>
+                    <td>Descarta cambios no guardados en commit.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git rm archivo</span></td>
+                    <td>Elimina un archivo y registra la eliminación.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="callout callout-warning">
+            <strong>⚠️ Cuidado:</strong> <span class="inline-code">git restore</span> y <span class="inline-code">git
+                reset</span> pueden borrar trabajo definitivamente. Antes de usarlos, revisa <span
+                class="inline-code">git status</span> y guarda una copia si tienes dudas.
+        </div>
+        <h3>5.1 Cómo usar los comandos sin perderse</h3>
+        <p>Un comando suele componerse de un programa (<span class="inline-code">git</span>), una acción (<span
+                class="inline-code">status</span>, <span class="inline-code">commit</span> o <span
+                class="inline-code">push</span>) y opciones o argumentos. Las opciones empiezan normalmente por <span
+                class="inline-code">-</span> o <span class="inline-code">--</span>; los argumentos indican sobre qué
+            archivo, rama o remoto actuar.</p>
+        <div class="code-block">git add src/app.js
+git commit -m "Corrige la validación del formulario"
+git push -u origin feature/formulario</div>
+        <ul>
+            <li><span class="inline-code">git add src/app.js</span> selecciona solo ese archivo para el próximo commit;
+                no guarda todavía el cambio en el historial.</li>
+            <li><span class="inline-code">git commit -m "..."</span> crea el punto del historial con los cambios que ya
+                estaban preparados.</li>
+            <li><span class="inline-code">git push -u origin feature/formulario</span> sube la rama al remoto llamado
+                <span class="inline-code">origin</span>. La opción <span class="inline-code">-u</span> recuerda la
+                relación para que en los siguientes envíos baste con <span class="inline-code">git push</span>.
+            </li>
+        </ul>
+        <h3>5.2 Verificar antes de confirmar o compartir</h3>
+        <div class="code-block">git status
+git diff
+git diff --staged
+git log --oneline -5</div>
+        <p>La secuencia responde a cuatro preguntas: ¿en qué rama estoy y qué archivos han cambiado?, ¿qué cambios aún
+            no he preparado?, ¿qué entrará en el próximo commit? y ¿cuáles son mis últimos cinco commits? Si algo no
+            coincide con lo esperado, detente antes de ejecutar <span class="inline-code">commit</span> o <span
+                class="inline-code">push</span>.</p>
+        <div class="callout">
+            <strong>Nota sobre <span class="inline-code">git pull</span>:</strong> equivale, de forma simplificada, a
+            traer información del remoto y después integrarla. <span class="inline-code">git pull --rebase</span> suele
+            mantener un historial más lineal, pero no es una solución automática para conflictos: si aparecen, debes
+            resolverlos y continuar o abortar la operación.
+        </div>
+        <h3>5.3 Mensajes de commit útiles</h3>
+        <div class="flex-cols">
+            <div>
+                <strong style="color: var(--success); font-size: 11pt;">✅ Bueno</strong>
+                <ul style="margin-top: 8px; margin-bottom: 0;">
+                    <li>Añade validación al formulario</li>
+                    <li>Corrige error de cálculo del total</li>
+                    <li>Actualiza instrucciones de instalación</li>
+                    <li>Elimina dependencia sin uso</li>
+                </ul>
+            </div>
+            <div>
+                <strong style="color: var(--danger); font-size: 11pt;">❌ Evitar</strong>
+                <ul style="margin-top: 8px; margin-bottom: 0;">
+                    <li>cambios</li>
+                    <li>arreglos varios</li>
+                    <li>final ahora si</li>
+                    <li>cosas</li>
+                </ul>
+            </div>
+        </div>
+        <h2 id="seccion-6">6. Ramas y trabajo en equipo</h2>
+        <p>La rama <span class="inline-code">main</span> (o <em>master</em> en proyectos antiguos) debe mantenerse
+            estable. Cada nueva funcionalidad, corrección o experimento debería hacerse en una rama propia.</p>
+        <div class="code-block">git switch main
+git pull --rebase origin main
+git switch -c feature/nombre-corto</div>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th style="width: 20%;">Prefijo</th>
+                    <th>Uso</th>
+                    <th style="width: 35%;">Ejemplo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>feature/</strong></td>
+                    <td>Nueva funcionalidad</td>
+                    <td><span class="inline-code">feature/pagina-contacto</span></td>
+                </tr>
+                <tr>
+                    <td><strong>fix/</strong></td>
+                    <td>Corrección de error</td>
+                    <td><span class="inline-code">fix/calculo-precio</span></td>
+                </tr>
+                <tr>
+                    <td><strong>docs/</strong></td>
+                    <td>Documentación</td>
+                    <td><span class="inline-code">docs/actualiza-readme</span></td>
+                </tr>
+                <tr>
+                    <td><strong>refactor/</strong></td>
+                    <td>Mejora interna sin cambiar el resultado</td>
+                    <td><span class="inline-code">refactor/ordena-servicios</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>6.1 Mantener una rama actualizada</h3>
+        <div class="code-block">git switch main
+git pull --rebase origin main
+git switch mi-rama
+git rebase main</div>
+        <p>Si todavía estás empezando, puedes sustituir el <span class="inline-code">rebase</span> por <span
+                class="inline-code">git merge main</span>. El rebase deja un historial más lineal, pero requiere más
+            cuidado si la rama ya se comparte con otras personas.</p>
+        <h3>6.2 Compartir una rama</h3>
+        <div class="code-block">git push -u origin mi-rama</div>
+        <h2 id="seccion-7">7. GitHub desde la web</h2>
+        <h3>7.1 Crear un repositorio</h3>
+        <ol>
+            <li>Pulsa el signo <strong>+</strong> de la esquina superior derecha y elige <em>New repository</em>.</li>
+            <li>Escribe un nombre corto. Añade una descripción y decide si será público o privado.</li>
+            <li>Marca <em>Add a README</em> si el repositorio empieza vacío.</li>
+            <li>Añade <span class="inline-code">.gitignore</span> según el lenguaje (por ejemplo, Python, Node o Visual
+                Studio).</li>
+            <li>Pulsa <em>Create repository</em>.</li>
+        </ol>
+        <h3>7.2 Elementos de un repositorio</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Pestaña / sección</th>
+                    <th>Uso principal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Code</strong></td>
+                    <td>Archivos, ramas, etiquetas y botón <em>Code</em> para clonar.</td>
+                </tr>
+                <tr>
+                    <td><strong>Issues</strong></td>
+                    <td>Tareas, errores, ideas y preguntas.</td>
+                </tr>
+                <tr>
+                    <td><strong>Pull requests</strong></td>
+                    <td>Propuestas de cambios pendientes de revisión.</td>
+                </tr>
+                <tr>
+                    <td><strong>Actions</strong></td>
+                    <td>Automatización: pruebas, compilación y despliegues.</td>
+                </tr>
+                <tr>
+                    <td><strong>Projects</strong></td>
+                    <td>Tableros para organizar trabajo.</td>
+                </tr>
+                <tr>
+                    <td><strong>Wiki</strong></td>
+                    <td>Documentación extensa del proyecto, si está habilitada.</td>
+                </tr>
+                <tr>
+                    <td><strong>Settings</strong></td>
+                    <td>Permisos, colaboradores, ramas, secretos y opciones del repositorio.</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>7.3 Editar archivos desde GitHub</h3>
+        <p>Abre un archivo y pulsa el icono del lápiz. Haz el cambio, escribe un mensaje y elige si quieres crear una
+            rama nueva y una Pull Request. Para archivos nuevos usa <em>Add file → Create new file</em>. Para subir
+            archivos usa <em>Add file → Upload files</em>.</p>
+        <div class="callout">
+            <strong>💡 Cuándo usarlo:</strong> La edición web es útil para cambios pequeños, corregir el README y
+            documentación. Para cambios grandes, clona el proyecto y trabaja localmente en tu editor de código.
+        </div>
+        <h3>7.4 Settings importantes</h3>
+        <ul>
+            <li><strong>Collaborators:</strong> invita a personas y asigna permisos.</li>
+            <li><strong>Branches:</strong> protege <span class="inline-code">main</span> y exige Pull Request,
+                revisiones o comprobaciones.</li>
+            <li><strong>Actions:</strong> revisa los flujos automáticos y sus resultados.</li>
+            <li><strong>Secrets and variables:</strong> guarda tokens para Actions; nunca los escribas en el código.
+            </li>
+            <li><strong>Pages:</strong> publica un sitio web estático desde una rama o desde Actions.</li>
+        </ul>
+        <h2 id="seccion-8">8. Pull requests y revisión de código</h2>
+        <p>Una Pull Request (PR) es una conversación sobre un cambio antes de incorporarlo a otra rama. No es solo un
+            botón de "fusionar": permite revisar, comentar, probar y documentar la decisión.</p>
+        <h3>8.1 Crear una PR de calidad</h3>
+        <ol>
+            <li>Sube tu rama a GitHub.</li>
+            <li>Pulsa <em>Compare & pull request</em> o abre la pestaña <em>Pull requests → New pull request</em>.</li>
+            <li>Elige la rama destino, normalmente <span class="inline-code">main</span>, y tu rama de cambios.</li>
+            <li>Escribe un título claro y una descripción con: qué cambia, por qué, cómo probarlo y capturas si afecta a
+                la interfaz.</li>
+            <li>Asigna revisores y enlaza la Issue correspondiente, por ejemplo: <span class="inline-code">Closes
+                    #12</span>.</li>
+            <li>Revisa los checks automáticos y responde a los comentarios.</li>
+        </ol>
+        <h3>8.2 Revisar una PR</h3>
+        <ul>
+            <li><strong>Files changed:</strong> inspecciona cada cambio, no solo el resultado final.</li>
+            <li><strong>Conversation:</strong> lee el contexto y las decisiones anteriores.</li>
+            <li><strong>Commits:</strong> comprueba que los commits son comprensibles.</li>
+            <li><strong>Review changes:</strong> comenta una línea, sugiere una modificación o aprueba.</li>
+        </ul>
+        <div class="callout">
+            <strong>Regla de etiqueta:</strong> Los comentarios deben ser concretos y respetuosos. Distingue siempre
+            entre un error que bloquea la integración (debe corregirse) y una simple sugerencia de estilo.
+        </div>
+        <h3>8.3 Fusionar una PR</h3>
+        <p>Cuando las revisiones y comprobaciones sean correctas, GitHub ofrece <em>Merge pull request</em>, <em>Squash
+                and merge</em> o <em>Rebase and merge</em>. <strong>Squash and merge</strong> suele ser fácil de
+            mantener porque convierte todos los commits intermedios de la PR en un solo commit limpio en <span
+                class="inline-code">main</span>.</p>
+        <h2 id="seccion-9">9. Conflictos y cómo resolverlos</h2>
+        <p>Hay conflicto cuando dos ramas modifican la misma parte de un archivo y Git no puede decidir qué versión
+            conservar. Git marcará el archivo así:</p>
+        <div class="code-block">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+contenido de tu rama
+=======
+contenido de la otra rama
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; otra-rama</div>
+        <h3>9.1 Pasos para resolver un conflicto</h3>
+        <ol>
+            <li>Ejecuta <span class="inline-code">git status</span> para ver los archivos en conflicto.</li>
+            <li>Abre cada archivo y decide qué contenido debe quedar.</li>
+            <li>Elimina las marcas <span class="inline-code">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>, <span
+                    class="inline-code">=======</span> y <span class="inline-code">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span>.
+            </li>
+            <li>Guarda el archivo y revisa el resultado con <span class="inline-code">git diff</span>.</li>
+            <li>Marca el conflicto como resuelto: <span class="inline-code">git add archivo</span>.</li>
+            <li>Completa la operación: <span class="inline-code">git commit</span> si era un merge, o <span
+                    class="inline-code">git rebase --continue</span> si era un rebase.</li>
+            <li>Ejecuta las pruebas antes de subir los cambios.</li>
+        </ol>
+        <div class="code-block">git status
+git diff
+git add archivo-en-conflicto
+git commit -m "Resuelve conflicto en archivo"</div>
+        <div class="callout callout-warning">
+            <strong>Cancelar:</strong> Si te has metido en un merge o rebase y no sabes continuar, puedes abortar con:
+            <span class="inline-code">git merge --abort</span> o <span class="inline-code">git rebase --abort</span>.
+            Esto no borra el trabajo anterior a esa operación.
+        </div>
+        <h2 id="seccion-10">10. Publicar un proyecto y GitHub Pages</h2>
+        <p>GitHub Pages publica sitios estáticos: HTML, CSS, JavaScript y generadores compatibles. No ejecuta un
+            servidor backend tradicional.</p>
+        <h3>10.1 Desde la configuración web</h3>
+        <ol>
+            <li>Ve a <em>Settings → Pages</em> en tu repositorio.</li>
+            <li>En <em>Build and deployment</em>, elige <em>Deploy from a branch</em>.</li>
+            <li>Selecciona la rama, normalmente <span class="inline-code">main</span>, y la carpeta <span
+                    class="inline-code">/ (root)</span> o <span class="inline-code">/docs</span>.</li>
+            <li>Pulsa <em>Save</em> y espera a que termine el despliegue.</li>
+            <li>GitHub mostrará la URL pública del sitio en esa misma pantalla.</li>
+        </ol>
+        <h3>10.2 Con GitHub CLI</h3>
+        <div class="code-block">gh repo create mi-proyecto --public --source=. --remote=origin --push</div>
+        <p>Para consultar el repositorio actual en la web: <span class="inline-code">gh repo view --web</span></p>
+        <h2 id="seccion-11">11. Buenas prácticas y seguridad</h2>
+        <ul>
+            <li><strong>No subas contraseñas</strong>, tokens, claves privadas, archivos <span
+                    class="inline-code">.env</span> ni datos personales.</li>
+            <li>Usa <span class="inline-code">.gitignore</span> desde el principio. Si un secreto ya se subió, revócalo:
+                borrarlo del archivo no lo invalida en el historial.</li>
+            <li>Activa 2FA en GitHub y usa contraseñas únicas.</li>
+            <li>Protege <span class="inline-code">main</span> y exige Pull Requests en proyectos de equipo.</li>
+            <li>Revisa dependencias y actualizaciones de seguridad que GitHub sugiere.</li>
+            <li>Mantén el README con instalación, uso, estructura y licencia.</li>
+            <li>Usa nombres de rama consistentes y haz commits pequeños.</li>
+            <li>Prueba siempre el proyecto localmente antes de crear la PR.</li>
+        </ul>
+        <div class="flex-cols">
+            <div>
+                <h3 style="margin-top: 0;">11.1 Ejemplo de .gitignore</h3>
+                <div class="code-block"># Dependencias
+node_modules/
+.venv/
+
+# Secretos y config local
+.env
+.env.*
+
+# Archivos del sistema
+.DS_Store
+.vscode/
+
+# Construcciones
+dist/
+build/</div>
+            </div>
+            <div>
+                <h3 style="margin-top: 0;">11.2 Licencias</h3>
+                <p>Una licencia indica qué pueden hacer otras personas con tu código. <strong>MIT</strong> es muy
+                    sencilla y permisiva; <strong>GPL</strong> exige mantener ciertas libertades si alguien redistribuye
+                    el código.</p>
+                <p style="margin-top: 10px;">Elige la licencia conscientemente y añade un archivo <span
+                        class="inline-code">LICENSE</span> desde la creación del repositorio.</p>
+            </div>
+        </div>
+        <h2 id="seccion-12">12. Errores frecuentes</h2>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th style="width: 32%;">Mensaje / situación</th>
+                    <th>Qué hacer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="inline-code">nothing to commit</span></td>
+                    <td>No hay cambios nuevos o ya están guardados. Ejecuta <span class="inline-code">git status</span>.
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">Please tell me who you are</span></td>
+                    <td>Configura tu <span class="inline-code">user.name</span> y <span
+                            class="inline-code">user.email</span> (Sección 2.3).</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">rejected / non-fast-forward</span></td>
+                    <td>Primero trae cambios: <span class="inline-code">git pull --rebase origin rama</span>; después
+                        vuelve a hacer push.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">remote origin already exists</span></td>
+                    <td>Comprueba con <span class="inline-code">git remote -v</span> o cambia la URL con <span
+                            class="inline-code">git remote set-url origin URL</span>.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">Permission denied</span></td>
+                    <td>Revisa la cuenta autenticada, permisos del repositorio y la URL remota.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">merge conflict</span></td>
+                    <td>Resuelve las marcas del archivo, haz <span class="inline-code">git add</span> y completa el
+                        merge o rebase.</td>
+                </tr>
+                <tr>
+                    <td><strong>Subí un secreto por error</strong></td>
+                    <td>Revoca el secreto en el proveedor inmediatamente, cambia la credencial y revisa el historial; no
+                        basta con borrarlo en el último commit.</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>12.1 Deshacer cambios con seguridad</h3>
+        <div class="code-block">git restore archivo # descarta cambios locales no guardados
+git restore --staged archivo # saca un archivo del staging (un-add)
+git revert ID_DEL_COMMIT # crea un commit nuevo que deshace otro</div>
+        <p>Para deshacer un commit que <strong>ya está compartido en GitHub</strong>, es mucho más seguro usar <span
+                class="inline-code">git revert</span> (que avanza el historial) que intentar reescribirlo con un reset
+            destructivo.</p>
+        <h2 id="seccion-13">13. Chuleta final y reto práctico</h2>
+        <div class="flex-cols">
+            <div>
+                <h3 style="margin-top: 0;">Flujo normal</h3>
+                <div class="code-block">git switch main
+git pull --rebase origin main
+git switch -c feature/mi-tarea
+
+# editar archivos
+git status
+git add .
+git commit -m "Describe el cambio"
+git push -u origin feature/mi-tarea
+
+# abrir PR en GitHub</div>
+            </div>
+            <div>
+                <h3 style="margin-top: 0;">Comandos GitHub CLI</h3>
+                <div class="code-block">gh auth login
+gh repo create
+gh repo clone USUARIO/REPO
+gh repo view --web
+gh pr create
+gh pr list
+gh pr view 123 --web
+gh issue create
+gh issue list
+gh workflow list</div>
+            </div>
+        </div>
+        <div class="callout no-print" style="margin-top: 20px;">
+            <strong>Practica de forma interactiva:</strong> Si quieres entender las ramas, <em>merge</em> y
+            <em>rebase</em> de forma visual jugando desde el navegador, entra en
+            <a href="https://learngitbranching.js.org/?locale=es_ES" target="_blank" rel="noopener noreferrer"
+                style="color: var(--primary);"><strong>Learn Git Branching (en español)</strong></a>.
+        </div>
+        <footer class="doc-footer">
+            <div>
+                <strong>Manual Práctico de Git y GitHub</strong><br>
+                Creado por <b>Michael Alessandro Aprile Mancha</b> · Material educativo libre para estudiantes y
+                docentes (Licencia CC BY-SA 4.0 / MIT).
+            </div>
+            <div>
+                <a class="github-badge" href="https://github.com/mikeaprilee" target="_blank" rel="noopener noreferrer">
+                    <span>🔗 github.com/mikeaprilee</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+    <a href="#inicio" class="btn-top no-print" id="btn-top">↑ Subir al índice</a>
+    <script>
+        document.querySelectorAll('.code-block').forEach(block => {
+            const btn = document.createElement('button');
+            btn.innerText = 'Copiar';
+            btn.className = 'copy-btn no-print';
+            btn.addEventListener('click', async () => {
+                const codeText = block.innerText.replace('Copiar', '').replace('✅ Copiado', '').trim();
+                try {
+                    await navigator.clipboard.writeText(codeText);
+                    btn.innerText = '✅ Copiado';
+                } catch (error) {
+                    console.error('No se pudo copiar el bloque de código al portapapeles.', error);
+                    btn.innerText = 'No se pudo copiar';
+                }
+                setTimeout(() => btn.innerText = 'Copiar', 1800);
+            });
+            block.appendChild(btn);
+        });
+        const htmlEl = document.documentElement;
+        const themeBtn = document.getElementById('theme-toggle');
+        function applyTheme(theme) {
+            htmlEl.setAttribute('data-theme', theme);
+            themeBtn.innerText = theme === 'dark' ? '☀️ Modo Claro' : '🌙 Modo Oscuro';
+        }
+        const savedTheme = localStorage.getItem('manual-git-theme');
+        if (savedTheme) {
+            applyTheme(savedTheme);
+        }
+        function toggleTheme() {
+            const current = htmlEl.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            applyTheme(next);
+            localStorage.setItem('manual-git-theme', next);
+        }
+        const btnTop = document.getElementById('btn-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                btnTop.classList.add('visible');
+            } else {
+                btnTop.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+</html>
