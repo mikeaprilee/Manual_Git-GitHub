@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,6 +31,7 @@
             --code-border: #30363d;
             --shadow-doc: 0 12px 36px rgba(31, 35, 40, 0.12);
         }
+
         [data-theme="dark"] {
             --bg-body: #010409;
             --bg-doc: #0d1117;
@@ -50,9 +52,11 @@
             --code-border: #30363d;
             --shadow-doc: 0 12px 36px rgba(0, 0, 0, 0.6);
         }
+
         html {
             scroll-behavior: smooth;
         }
+
         body {
             font-family: 'Inter', 'Segoe UI', 'Calibri', Arial, sans-serif;
             color: var(--text-main);
@@ -63,6 +67,7 @@
             font-size: 10.8pt;
             transition: background-color 0.25s ease, color 0.25s ease;
         }
+
         .document {
             background-color: var(--bg-doc);
             max-width: 860px;
@@ -73,6 +78,7 @@
             border: 1px solid var(--border-color);
             transition: background-color 0.25s ease, border-color 0.25s ease;
         }
+
         h1,
         h2,
         h3 {
@@ -81,12 +87,14 @@
             font-weight: 700;
             letter-spacing: -0.02em;
         }
+
         h1 {
             font-size: 24pt;
             margin-top: 0;
             border-bottom: 3px solid var(--primary);
             padding-bottom: 8px;
         }
+
         h2 {
             font-size: 15.5pt;
             border-bottom: 1px solid var(--border-color);
@@ -94,31 +102,38 @@
             margin-top: 42px;
             scroll-margin-top: 20px;
         }
+
         h3 {
             font-size: 12.5pt;
             margin-top: 26px;
             color: var(--text-main);
         }
+
         p {
             margin: 0 0 12px 0;
         }
+
         ul,
         ol {
             margin: 0 0 14px 0;
             padding-left: 24px;
         }
+
         li {
             margin-bottom: 6px;
         }
+
         .masthead {
             margin-bottom: 25px;
         }
+
         .masthead p.subtitle {
             font-size: 12pt;
             color: var(--text-muted);
             margin-top: 8px;
             font-weight: 500;
         }
+
         .toolbar {
             display: flex;
             justify-content: space-between;
@@ -129,6 +144,7 @@
             flex-wrap: wrap;
             gap: 10px;
         }
+
         .toolbar-author {
             font-size: 10pt;
             color: var(--text-muted);
@@ -138,14 +154,17 @@
             align-items: center;
             gap: 6px;
         }
+
         .toolbar-author:hover {
             color: var(--primary);
         }
+
         .toolbar-actions {
             display: flex;
             gap: 8px;
             align-items: center;
         }
+
         .btn-action {
             background-color: var(--bg-light);
             color: var(--text-main);
@@ -158,10 +177,12 @@
             cursor: pointer;
             transition: all 0.2s ease;
         }
+
         .btn-action:hover {
             border-color: var(--primary);
             color: var(--primary);
         }
+
         .btn-print {
             background-color: var(--primary);
             color: #ffffff;
@@ -174,9 +195,11 @@
             cursor: pointer;
             transition: background-color 0.2s ease;
         }
+
         .btn-print:hover {
             background-color: var(--primary-hover);
         }
+
         .toc-box {
             background: var(--bg-light);
             border: 1px solid var(--border-color);
@@ -184,12 +207,14 @@
             padding: 16px 20px;
             margin: 22px 0;
         }
+
         .toc-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
             gap: 8px 16px;
             font-size: 9.8pt;
         }
+
         .toc-grid a {
             color: var(--text-main);
             text-decoration: none;
@@ -197,10 +222,12 @@
             border-radius: 4px;
             transition: background-color 0.15s, color 0.15s;
         }
+
         .toc-grid a:hover {
             color: var(--primary);
             background-color: var(--bg-hover);
         }
+
         .callout {
             background-color: var(--bg-light);
             border-left: 4px solid var(--primary);
@@ -209,10 +236,12 @@
             margin: 16px 0;
             border-radius: 0 6px 6px 0;
         }
+
         .callout-warning {
             border-left-color: var(--danger);
             background-color: var(--danger-bg);
         }
+
         .code-block {
             box-sizing: border-box;
             width: 100%;
@@ -233,6 +262,7 @@
             position: relative;
             box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
+
         .copy-btn {
             position: absolute;
             top: 8px;
@@ -248,11 +278,13 @@
             cursor: pointer;
             transition: all 0.15s ease;
         }
+
         .copy-btn:hover {
             background: #30363d;
             color: #ffffff;
             border-color: #8b949e;
         }
+
         .inline-code {
             font-family: 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
             background-color: var(--bg-light);
@@ -262,6 +294,7 @@
             font-size: 9.3pt;
             border: 1px solid var(--border-color);
         }
+
         .git-flow {
             display: flex;
             align-items: center;
@@ -275,6 +308,7 @@
             gap: 8px;
             text-align: center;
         }
+
         .flow-step {
             background: var(--bg-doc);
             border: 2px solid var(--primary);
@@ -285,6 +319,7 @@
             flex: 1;
             min-width: 115px;
         }
+
         .flow-step small {
             display: block;
             font-weight: 400;
@@ -292,13 +327,16 @@
             font-size: 8.2pt;
             margin-top: 2px;
         }
+
         .flow-remote {
             background: var(--primary);
             color: #ffffff;
         }
+
         .flow-remote small {
             color: #e6f0ff;
         }
+
         .flow-arrow {
             font-weight: 700;
             color: var(--primary);
@@ -308,6 +346,7 @@
             align-items: center;
             gap: 2px;
         }
+
         .flow-arrow span {
             font-family: 'JetBrains Mono', monospace;
             font-size: 7.8pt;
@@ -318,6 +357,7 @@
             color: var(--text-main);
             white-space: nowrap;
         }
+
         .data-table {
             width: 100%;
             border-collapse: separate;
@@ -328,6 +368,7 @@
             border-radius: 8px;
             overflow: hidden;
         }
+
         .data-table th,
         .data-table td {
             border-bottom: 1px solid var(--border-color);
@@ -336,29 +377,36 @@
             text-align: left;
             vertical-align: top;
         }
+
         .data-table th:last-child,
         .data-table td:last-child {
             border-right: none;
         }
+
         .data-table tbody tr:last-child td {
             border-bottom: none;
         }
+
         .data-table th {
             background-color: var(--bg-light);
             font-weight: 700;
             color: var(--primary);
         }
+
         .data-table tbody tr:nth-child(even) {
             background-color: var(--bg-zebra);
         }
+
         .data-table tbody tr:hover {
             background-color: var(--bg-hover);
         }
+
         .flex-cols {
             display: flex;
             gap: 20px;
             margin: 16px 0;
         }
+
         .flex-cols>div {
             flex: 1;
             min-width: 0;
@@ -367,6 +415,7 @@
             padding: 16px;
             border-radius: 8px;
         }
+
         .doc-footer {
             margin-top: 45px;
             padding-top: 20px;
@@ -379,14 +428,17 @@
             font-size: 9.5pt;
             color: var(--text-muted);
         }
+
         .doc-footer a {
             color: var(--primary);
             text-decoration: none;
             font-weight: 600;
         }
+
         .doc-footer a:hover {
             text-decoration: underline;
         }
+
         .github-badge {
             display: inline-flex;
             align-items: center;
@@ -399,9 +451,11 @@
             text-decoration: none !important;
             transition: background-color 0.2s;
         }
+
         .github-badge:hover {
             background-color: var(--primary);
         }
+
         .btn-top {
             position: fixed;
             bottom: 24px;
@@ -420,60 +474,75 @@
             transition: opacity 0.25s ease, transform 0.2s ease;
             text-decoration: none;
         }
+
         .btn-top.visible {
             opacity: 1;
             pointer-events: auto;
         }
+
         .btn-top:hover {
             background-color: var(--primary-hover);
             transform: translateY(-2px);
         }
+
         @media (max-width: 768px) {
             body {
                 padding: 10px;
             }
+
             .document {
                 padding: 24px 18px;
             }
+
             h1 {
                 font-size: 18pt;
             }
+
             h2 {
                 font-size: 14pt;
             }
+
             .flex-cols {
                 flex-direction: column;
                 gap: 12px;
             }
+
             .git-flow {
                 flex-direction: column;
             }
+
             .flow-arrow {
                 transform: rotate(90deg);
                 margin: 6px 0;
             }
+
             .flow-arrow span {
                 transform: rotate(-90deg);
             }
+
             .data-table {
                 display: block;
                 overflow-x: auto;
                 white-space: nowrap;
             }
+
             .doc-footer {
                 flex-direction: column;
                 text-align: center;
             }
         }
+
         @media print {
             @page {
                 margin: 15mm;
             }
+
             body {
                 background-color: #ffffff !important;
                 color: #1f2328 !important;
                 padding: 0;
             }
+
             .document {
                 background-color: #ffffff !important;
                 box-shadow: none !important;
@@ -481,6 +550,7 @@
                 padding: 0;
                 max-width: 100%;
             }
+
             .code-block {
                 background-color: #f6f8fa !important;
                 color: #1f2328 !important;
@@ -488,19 +558,23 @@
                 padding: 12px 15px !important;
                 box-shadow: none !important;
             }
+
             .no-print {
                 display: none !important;
             }
+
             h2,
             h3 {
                 page-break-after: avoid;
                 break-after: avoid;
             }
+
             p,
             li {
                 page-break-inside: avoid;
                 break-inside: avoid;
             }
+
             .callout,
             .code-block,
             .data-table,
@@ -516,6 +590,7 @@
         }
     </style>
 </head>
+
 <body id="inicio">
     <div class="document">
         <div class="toolbar no-print">
@@ -622,105 +697,222 @@
         <p>Si aparece una versión, Git está listo. Si no, cierra y vuelve a abrir la terminal o revisa la instalación.
         </p>
         <h3>2.2 Crear una cuenta de GitHub</h3>
-        <ul>
-            <li>Entra en <em>https://github.com</em> y pulsa <strong>Sign up</strong>.</li>
-            <li>Usa un correo que puedas verificar y activa la autenticación en dos pasos (2FA).</li>
-            <li>Elige un nombre de usuario profesional y fácil de recordar.</li>
-        </ul>
+        <p>Para crear tu cuenta, entra en GitHub y pulsa Sign up. Utiliza una dirección de correo electrónico a la que
+            tengas acceso, porque GitHub te enviará un mensaje de verificación y necesitarás confirmar la cuenta para
+            utilizar todas sus funciones. Cuando la cuenta esté creada, activa la autenticación en dos pasos (2FA), ya
+            que añade una segunda comprobación además de la contraseña y protege tus repositorios si alguien consigue
+            averiguarla. Por último, elige un nombre de usuario profesional y fácil de recordar, porque aparecerá en la
+            dirección de tu perfil y formará parte de las URL de los repositorios que publiques.</p>
         <h3>2.3 Configurar tu identidad de Git</h3>
+        <p>Antes de crear commits, Git necesita conocer el nombre y el correo que asociará a cada commit. Esta
+            información se guarda como parte de la identidad del autor del commit, pero no representa una cuenta
+            iniciada en GitHub ni concede permisos para subir código. Es decir, user.name y user.email sirven para
+            identificar quién creó un commit, mientras que la autenticación de GitHub se utilizará más adelante cuando
+            Git o GitHub CLI necesiten comunicarse con un repositorio remoto.</p>
         <div class="code-block">git config --global user.name "Tu Nombre"
-git config --global user.email "tu-correo@example.com"
-git config --global init.defaultBranch main</div>
-        <p>Comprueba la configuración con:</p>
+            git config --global user.email "tu-correo@example.com"
+            git config --global init.defaultBranch main</div>
+        <p>La opción <span class="inline-code">--global</span> aplica esta configuración a todos los repositorios del
+            ordenador. Si necesitas utilizar
+            una identidad diferente en un proyecto concreto, puedes ejecutar los mismos comandos dentro de ese
+            repositorio sin <span class="inline-code">--global</span>. La configuración <span
+                class="inline-code">init.defaultBranch main</span> indica
+            que, cuando inicialices un repositorio nuevo con <span class="inline-code">git init</span>, la rama inicial
+            se llamará <span class="inline-code">main</span>. La opción
+            <span class="inline-code">--global</span> hace que esta preferencia se aplique a todos los repositorios del
+            ordenador.
+        </p>
+        <p>Para comprobar la configuración actual, puedes ejecutar:</p>
         <div class="code-block">git config --global --list</div>
         <div class="callout callout-warning">
-            <strong>Importante:</strong> El correo usado en los commits puede aparecer públicamente. Puedes usar el
-            correo <em>noreply</em> de GitHub desde <em>Settings → Emails</em> si quieres ocultar tu correo personal.
+            <strong>Importante:</strong> El correo configurado debe coincidir con una dirección verificada en GitHub si
+            quieres que la plataforma asocie correctamente los commits con tu perfil. Si prefieres no mostrar tu correo
+            personal, puedes utilizar la dirección <span class="inline-code">noreply</span> que GitHub proporciona en
+            <span class="inline-code">Settings → Emails</span>.
         </div>
-        <h3>2.4 ¿Qué es GitHub CLI?</h3>
-        <p><strong>GitHub CLI</strong> es la herramienta oficial de GitHub para trabajar con la plataforma desde una
-            terminal. Su ejecutable se llama <span class="inline-code">gh</span>. Permite consultar y administrar
-            repositorios, Issues, Pull Requests, revisiones y GitHub Actions sin tener que abrir el navegador para cada
-            operación.</p>
+        <h3>2.4 Diferencias entre Git y GitHub CLI</h3>
+        <p><strong>Git y GitHub CLI</strong> se utilizan desde la misma terminal, pero resuelven problemas distintos.
+            <strong>Git</strong>
+            es el sistema de control de versiones que trabaja principalmente con los archivos y el historial del
+            repositorio local. <strong>GitHub CLI</strong> es una herramienta de comunicación y administración de
+            <strong>GitHub</strong> que utiliza la
+            red para consultar o modificar recursos alojados en la plataforma. Puedes trabajar sin conexión en
+            los archivos del proyecto y utilizar Git para crear commits, cambiar de rama o revisar el historial.
+            En cambio, las operaciones de GitHub CLI que consultan o modifican repositorios, Issues, Pull Requests o
+            Actions necesitan conexión con los servidores de GitHub.
+        </p>
         <p>GitHub CLI no sustituye a Git: se complementan. <span class="inline-code">git commit</span>, <span
                 class="inline-code">git branch</span> y <span class="inline-code">git merge</span> trabajan con el
             historial del repositorio; <span class="inline-code">gh pr</span>, <span class="inline-code">gh issue</span>
             y <span class="inline-code">gh run</span> trabajan con los servicios de GitHub. Algunos comandos de <span
-                class="inline-code">gh</span>, como <span class="inline-code">gh repo clone</span>, utilizan Git
-            internamente para descargar o enviar el código.</p>
+                class="inline-code">gh</span>, como
+            <span class="inline-code">gh repo clone</span>, utilizan Git internamente para clonar el repositorio. Aun
+            así, Git y GitHub CLI siguen siendo
+            herramientas diferentes: Git gestiona el contenido y el historial, mientras que <span
+                class="inline-code">gh</span> gestiona recursos y
+            servicios de GitHub.
+        </p>
         <table class="data-table">
             <thead>
                 <tr>
-                    <th style="width: 25%;">Herramienta</th>
-                    <th>Pregunta a la que responde</th>
-                    <th style="width: 32%;">Ejemplos</th>
+                    <th style="width: 25%;">Tarea</th>
+                    <th>Herramienta principal</th>
+                    <th style="width: 32%;">Motivo</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>Git</strong></td>
-                    <td>¿Qué cambios tiene mi proyecto y cómo organizo su historial?</td>
-                    <td><span class="inline-code">git status</span>, <span class="inline-code">git commit</span>, <span
-                            class="inline-code">git switch</span></td>
+                    <td><strong>Ver cambios en los archivos</strong></td>
+                    <td><span class="inline-code">git status</span></td>
+                    <td>El estado está en la carpeta local</td>
                 </tr>
                 <tr>
-                    <td><strong>GitHub CLI</strong></td>
-                    <td>¿Qué ocurre en GitHub y cómo interactúo con repositorios, PR o Issues?</td>
-                    <td><span class="inline-code">gh pr list</span>, <span class="inline-code">gh issue create</span>,
-                        <span class="inline-code">gh run watch</span>
+                    <td><strong>Crear un commit</strong></td>
+                    <td><span class="inline-code">git commit</span></td>
+                    <td>El commit pertenece al historial local</td>
+                </tr>
+                <tr>
+                    <td><strong>Crear o cambiar de rama</strong></td>
+                    <td><span class="inline-code">git branch</span> / <span class="inline-code">git switch</span></td>
+                    <td>Las ramas forman parte del repositorio Git; <span class="inline-code">git switch</span> permite
+                        cambiar entre ellas.</td>
+                </tr>
+                <tr>
+                    <td><strong>Subir o descargar commits</strong></td>
+                    <td><span class="inline-code">git push</span> / <span class="inline-code">git pull</span></td>
+                    <td>Pertenecen a Git y sincronizan commits entre el repositorio local y el remoto.</td>
+                </tr>
+                <tr>
+                    <td><strong>Crear un repositorio en GitHub</strong></td>
+                    <td><span class="inline-code">gh repo create</span></td>
+                    <td>Permite crear un repositorio remoto vacío o publicarlo a partir de una carpeta local existente.
                     </td>
+                </tr>
+                <tr>
+                    <td><strong>Crear una Issue</strong></td>
+                    <td><span class="inline-code">gh issue create</span></td>
+                    <td>Las Issues pertenecen a GitHub</td>
+                </tr>
+                <tr>
+                    <td><strong>Crear una Pull Request</strong></td>
+                    <td><span class="inline-code">gh pr create</span></td>
+                    <td>La revisión ocurre en GitHub</td>
+                </tr>
+                <tr>
+                    <td><strong>Consultar Actions</strong></td>
+                    <td><span class="inline-code">gh run list</span> / <span class="inline-code">gh run watch</span>
+                    </td>
+                    <td>Las ejecuciones están en GitHub</td>
+                </tr>
+                <tr>
+                    <td><strong>Abrir un repositorio en el navegador</strong></td>
+                    <td><span class="inline-code">gh repo view --web</span></td>
+                    <td>Se accede a la interfaz web de GitHub</td>
                 </tr>
             </tbody>
         </table>
+        <p> Algunas órdenes de <span class="inline-code">gh</span> pueden utilizar Git internamente. Por ejemplo, <span
+                class="inline-code">gh repo clone</span> termina descargando una
+            copia del repositorio mediante Git, y <span class="inline-code">gh repo create --source=.</span> puede crear
+            el repositorio remoto y
+            asociarlo a una carpeta local. Esto no significa que Git y GitHub CLI sean el mismo programa: Git gestiona
+            el contenido y el historial, mientras que <span class="inline-code">gh</span> gestiona recursos y servicios
+            de GitHub.
+        </p>
+        <div class="callout">
+            <strong>💡 Idea clave:</strong> GitHub CLI es una herramienta de comunicación con GitHub. No sustituye a
+            Git, pero puede utilizarlo internamente para descargar o subir código.
+        </div>
+        <div class="callout">
+            <h4>Identidad, autenticación y permisos no son lo mismo</h4>
+            <p>En este proceso aparecen tres conceptos diferentes. La identidad de Git <span
+                    class="inline-code">(user.name
+                    y user.email)</span> indica quién
+                figura como autor de un commit. La autenticación demuestra ante GitHub qué cuenta está realizando una
+                operación. Los permisos determinan qué puede hacer esa cuenta, por ejemplo leer un repositorio privado,
+                subir una rama o crear una Pull Request. Configurar el nombre y el correo no inicia sesión, y haber
+                iniciado
+                sesión tampoco concede permisos superiores a los que tiene la cuenta.</p>
+        </div>
+
         <h3>2.5 Instalar y autenticar GitHub CLI</h3>
         <p>Instala GitHub CLI desde <a class="toolbar-author" href="https://cli.github.com/ " target="_blank"
                 rel="noopener noreferrer">https://cli.github.com/ </a> o mediante el gestor de paquetes de tu sistema.
             Después comprueba que está disponible:</p>
         <div class="code-block">gh --version</div>
-        <p>Inicia sesión con el asistente interactivo:</p>
+        <p><span class="inline-code">gh auth login</span> inicia el proceso de autenticación de GitHub CLI. Durante el
+            asistente se elige el servidor, normalmente GitHub.com, el protocolo que se utilizará para conectar con los
+            repositorios y el método para autorizar la cuenta. La opción <strong>HTTPS</strong> suele ser sencilla para
+            empezar porque GitHub CLI puede gestionar
+            las credenciales
+            mediante el sistema de almacenamiento seguro disponible. También es posible utilizar SSH si previamente se
+            han configurado claves SSH en la cuenta de GitHub.</p>
         <div class="code-block">gh auth login</div>
-        <ol>
-            <li>Selecciona <em>GitHub.com</em> como servidor.</li>
-            <li>Elige <em>HTTPS</em> para que Git use una dirección HTTPS al comunicarse con GitHub.</li>
-            <li>Selecciona el inicio de sesión mediante navegador y copia el código que muestre la terminal.</li>
-            <li>Autoriza GitHub CLI en el navegador y vuelve a la terminal.</li>
-        </ol>
+        <p>Si eliges HTTPS, GitHub CLI puede ofrecer configurar Git para que utilice las credenciales de GitHub CLI
+            cuando ejecutes operaciones como <span class="inline-code">git push</span> o <span class="inline-code">git
+                pull</span>. Si aceptas esa opción, <span class="inline-code">gh</span> y <span
+                class="inline-code">git</span> podrán utilizar la
+            misma autenticación para comunicarse con GitHub, aunque cada herramienta seguirá teniendo una función
+            distinta. Si eliges SSH, Git utilizará una clave SSH en lugar de las credenciales HTTPS.</p>
         <p>Comprueba la cuenta y el método de autenticación:</p>
-        <div class="code-block">gh auth status</div>
-        <p>La autenticación permite que <span class="inline-code">gh</span> actúe en tu nombre, pero no concede permisos
-            que tu cuenta no tenga. En un repositorio privado, por ejemplo, solo podrás operar si tu usuario tiene
-            acceso a ese repositorio.</p>
+        <div class="code-block">gh auth status
+            git remote -v
+        </div>
+        <p><span class="inline-code">gh auth status</span> muestra la cuenta autenticada en GitHub CLI y el protocolo
+            configurado. <span class="inline-code">git remote -v</span> muestra
+            a qué dirección remota está conectado el repositorio local. Ambos comandos comprueban cosas diferentes: el
+            primero revisa la sesión de gh y el segundo la conexión configurada para ese repositorio.</p>
         <div class="callout callout-warning">
             <strong>Importante:</strong> GitHub CLI guarda las credenciales usando el mecanismo seguro disponible en el
             sistema cuando es posible. No copies tokens en comandos, scripts compartidos ni capturas de pantalla. Si
             sospechas que una credencial se ha expuesto, revócala desde GitHub y vuelve a autenticarte.
         </div>
-        <h3>2.6 Comandos principales de GitHub CLI</h3>
-        <p>Los subcomandos se organizan por recurso: <span class="inline-code">gh repo</span> para repositorios, <span
-                class="inline-code">gh pr</span> para Pull Requests, <span class="inline-code">gh issue</span> para
-            Issues y <span class="inline-code">gh run</span> para ejecuciones de Actions.</p>
-        <div class="code-block">gh repo view --web
-gh pr list
-gh pr view 123 --web
-gh issue create --title "Corrige el formulario" --body "Describe el problema"
-gh issue list
-gh run list
-gh run watch</div>
-        <ul>
-            <li><span class="inline-code">gh repo view --web</span> abre en el navegador el repositorio asociado a la
-                carpeta actual.</li>
-            <li><span class="inline-code">gh pr list</span> muestra las Pull Requests del repositorio actual; <span
-                    class="inline-code">gh pr view 123 --web</span> abre la número 123.</li>
-            <li><span class="inline-code">gh issue create</span> crea una tarea o incidencia sin rellenar el formulario
-                manualmente en la web.</li>
-            <li><span class="inline-code">gh run list</span> muestra ejecuciones recientes de GitHub Actions y <span
-                    class="inline-code">gh run watch</span> permite seguir una ejecución en curso.</li>
-        </ul>
+        <h3>2.6 Crear y conectar un repositorio desde la terminal</h3>
+        <p>Una vez configuradas la identidad de Git y la autenticación de GitHub CLI, puedes crear un repositorio
+            completo sin abrir el navegador. En este flujo, Git prepara el proyecto local y guarda su historial,
+            mientras que GitHub CLI crea el repositorio remoto y lo conecta con la carpeta local. Cada herramienta
+            interviene en una parte diferente del proceso.</p>
+        <p>El flujo práctico completo se muestra en la sección 4. Allí se prepara la carpeta con <span
+            class="inline-code">git init</span>, se revisan y preparan los archivos, se crea el primer commit y se
+            utiliza <span class="inline-code">gh repo create</span> para crear el repositorio remoto, configurar
+            <span class="inline-code">origin</span> y subir los commits. Sus opciones principales son <span
+            class="inline-code">--source=.</span>, <span class="inline-code">--remote=origin</span> y <span
+            class="inline-code">--push</span>.</p>
+        <div class="callout callout-warning">
+            <strong>Importante:</strong> Antes de ejecutar <span class="inline-code">git add .</span>, revisa que la
+            carpeta contenga únicamente los archivos que quieres versionar.
+            Si hay archivos generados, dependencias, configuraciones locales o credenciales, debes incluirlos
+            previamente en <span class="inline-code">.gitignore</span>. Git no ignora automáticamente los archivos que
+            no deberían publicarse.
+        </div>
+        <div class="callout">
+            <p>💡<strong>Ejemplo de contenido para <span class="inline-code">.gitignore</span>:</strong></p>
+            <div class="code-block">node_modules/
+                .venv/
+                .env
+                .env.*
+                dist/
+                build/
+                .vscode/
+            </div>
+            <p>El archivo <span class="inline-code">.gitignore</span> indica a Git qué archivos o carpetas debe ignorar.
+                Esto evita que <span class="inline-code">git status</span> muestre
+                como archivos sin seguimiento elementos que se generan automáticamente o que solo deben existir en el
+                ordenador local. <span class="inline-code">.gitignore</span> no borra esos archivos ni impide que
+                existan en la carpeta; simplemente evita
+                que Git los proponga para añadirlos al historial.
+                Si un archivo ya se añadió a un commit, incluirlo después en <span class="inline-code">.gitignore</span>
+                no lo elimina del historial. En ese
+                caso hay que dejar de seguirlo con Git y, si contenía información sensible, revocar también la
+                credencial
+                expuesta.</p>
+        </div>
         <h3>2.7 Crear una Pull Request desde la terminal</h3>
         <p>Después de crear commits y subir la rama con Git, puedes abrir la Pull Request con GitHub CLI:</p>
         <div class="code-block">git status
-git push -u origin feature/mi-tarea
-gh pr create --base main --head feature/mi-tarea --title "Añade formulario de contacto" --body "Explica los cambios y cómo probarlos"</div>
+            git push -u origin feature/mi-tarea
+            gh pr create --base main --head feature/mi-tarea --title "Añade formulario de contacto" --body "Explica los
+            cambios y cómo probarlos"</div>
         <p><span class="inline-code">--base</span> indica la rama que recibirá los cambios y <span
                 class="inline-code">--head</span> la rama que los contiene. Si omites opciones, <span
                 class="inline-code">gh pr create</span> ofrece un asistente interactivo. Antes de crearla, revisa que la
@@ -732,7 +924,7 @@ gh pr create --base main --head feature/mi-tarea --title "Añade formulario de c
         </div>
         <h3>2.8 Desconectar o cambiar de cuenta</h3>
         <div class="code-block">gh auth logout
-gh auth login</div>
+            gh auth login</div>
         <p>Usa <span class="inline-code">gh auth logout</span> si compartes el ordenador o necesitas cerrar la sesión
             actual. Si trabajas con varias cuentas, revisa siempre el resultado de <span class="inline-code">gh auth
                 status</span> antes de crear repositorios, Issues o Pull Requests.</p>
@@ -773,7 +965,32 @@ gh auth login</div>
                 </tr>
             </tbody>
         </table>
-        <h3>3.1 Cómo leer git status</h3>
+        <p>Los archivos <em>Untracked</em> son archivos que existen en la carpeta del proyecto, pero que Git todavía
+            no sigue. Para incluir uno de ellos en el próximo commit, utiliza <span class="inline-code">git add
+                archivo</span>. Si no debe formar parte del repositorio, añádelo a <span
+                class="inline-code">.gitignore</span> o elimínalo de la carpeta. Los archivos <em>Modified</em>, en
+            cambio, ya forman parte del historial de Git y han cambiado desde el último commit. Puedes preparar sus
+            cambios con <span class="inline-code">git add archivo</span> o descartarlos con <span
+                class="inline-code">git restore archivo</span>, teniendo en cuenta que esta última opción elimina los
+            cambios locales no guardados.</p>
+        <p>La <em>Staging Area</em> es una zona intermedia donde seleccionas qué cambios formarán parte del próximo
+            commit. Si has añadido un archivo por error, <span class="inline-code">git restore --staged
+                archivo</span> lo saca de esta zona, pero conserva sus modificaciones en el <em>Working Tree</em>.</p>
+        <p>Cuando ejecutas <span class="inline-code">git commit</span>, los cambios preparados dejan de estar
+            pendientes y pasan a formar parte del historial local. En ese momento están guardados en el repositorio de
+            tu ordenador, pero todavía no están disponibles en GitHub hasta que ejecutes <span
+                class="inline-code">git push</span>.</p>
+        <h3>3.1 Qué ocurre al ejecutar git init</h3>
+        <p>Cuando ejecutas <span class="inline-code">git init</span>, Git crea una carpeta oculta llamada <span
+                class="inline-code">.git</span> dentro del directorio actual. Esa carpeta contiene la información
+            necesaria para controlar las versiones, pero todavía no incluye los archivos del proyecto. Al ejecutar
+            <span class="inline-code">git status</span>, Git compara el contenido de la carpeta con el repositorio y
+            muestra como <em>Untracked files</em> aquellos archivos que todavía no están siendo seguidos.</p>
+        <p>Por eso es importante ejecutar <span class="inline-code">git init</span> dentro de la carpeta concreta del
+            proyecto. Si lo ejecutas por error en una carpeta superior, como tu carpeta de usuario, el Escritorio o
+            Documentos, Git puede detectar como posibles archivos del proyecto otros documentos y carpetas personales
+            que se encuentren dentro de ella.</p>
+        <h3>3.2 Cómo leer git status</h3>
         <div class="code-block">git status</div>
         <p>Este comando es tu principal herramienta de orientación. Indica la rama actual, cambios modificados, archivos
             nuevos y si tu rama está por delante o por detrás de GitHub. Acostúmbrate a ejecutarlo antes y después de
@@ -786,22 +1003,47 @@ gh auth login</div>
         </div>
         <h2 id="seccion-4">4. Primer proyecto paso a paso</h2>
         <h3>Opción A: empezar desde una carpeta local</h3>
+        <p>Si el proyecto ya existe en una carpeta de tu ordenador, sitúate primero en esa carpeta e inicializa el
+            repositorio local. Antes de preparar los archivos, crea o revisa el archivo <span
+                class="inline-code">.gitignore</span> para indicar qué elementos locales no deben formar parte del
+            repositorio.</p>
         <div class="code-block">cd ruta/de/tu/proyecto
-git init
-git add .
-git commit -m "Primer commit"</div>
-        <p>Después crea un repositorio vacío en GitHub: <em>New repository</em>. No marques README si ya tienes archivos
-            locales, para evitar un conflicto inicial.</p>
-        <div class="code-block">git branch -M main
-git remote add origin https://github.com/USUARIO/REPOSITORIO.git
-git push -u origin main</div>
+            git init
+            git status
+            git add .
+            git status
+            git commit -m "Primer commit"</div>
+        <p>El primer <span class="inline-code">git status</span> permite revisar los archivos que Git detecta antes de
+            prepararlos. Después de <span class="inline-code">git add .</span>, el segundo muestra qué archivos han
+            pasado a la <em>Staging Area</em> y, por tanto, se incluirán en el commit. Si todo es correcto, <span
+            class="inline-code">git commit</span> guarda la primera versión en el repositorio local.</p>
+        <p>Cuando el commit local esté preparado, puedes crear el repositorio remoto y conectarlo con la carpeta actual
+            mediante GitHub CLI:</p>
+        <div class="code-block">gh repo create mi-proyecto --public --source=. --remote=origin --push</div>
+        <p><span class="inline-code">gh repo create</span> crea el repositorio en GitHub sin abrir el navegador.
+            <span class="inline-code">--public</span> lo hace público; puedes sustituirlo por <span
+            class="inline-code">--private</span> si no quieres que el código sea visible. <span
+            class="inline-code">--source=.</span> indica que la carpeta actual es el origen, <span
+            class="inline-code">--remote=origin</span> configura la conexión con el repositorio remoto y <span
+            class="inline-code">--push</span> sube los commits existentes a GitHub. La creación del repositorio la
+            realiza GitHub CLI, pero el historial y los commits siguen siendo gestionados por Git.</p>
         <h3>Opción B: descargar un repositorio existente</h3>
         <div class="code-block">git clone https://github.com/USUARIO/REPOSITORIO.git
-cd REPOSITORIO</div>
-        <p>Con GitHub CLI también puedes usar: <span class="inline-code">gh repo clone USUARIO/REPOSITORIO</span></p>
+            cd REPOSITORIO</div>
+        <p><span class="inline-code">git clone</span> descarga una copia del repositorio mediante su URL. Con GitHub
+            CLI también puedes utilizar <span class="inline-code">gh repo clone USUARIO/REPOSITORIO</span>, que
+            identifica el repositorio mediante su propietario y nombre y utiliza la autenticación de GitHub CLI para
+            conectarse. Ambos comandos descargan los archivos y el historial necesario para trabajar localmente. Tras
+            clonar el proyecto, entra en la carpeta con <span class="inline-code">cd</span> antes de ejecutar otros
+            comandos de Git.</p>
         <h3>4.1 Flujo diario recomendado</h3>
+        <p>El trabajo diario consiste en partir de una versión actualizada del proyecto, desarrollar una tarea aislada
+            y revisar los cambios antes de compartirlos. La rama <span class="inline-code">main</span> se mantiene
+            como referencia estable; por eso conviene actualizarla primero y crear después una rama propia para la
+            funcionalidad, corrección o documentación que vayas a realizar.</p>
         <ol>
-            <li>Trae los cambios recientes: <span class="inline-code">git pull --rebase origin main</span></li>
+            <li>Vuelve a la rama principal y trae los cambios recientes: <span class="inline-code">git switch
+                main</span> y <span class="inline-code">git pull --rebase origin main</span></li>
             <li>Crea una rama para tu tarea: <span class="inline-code">git switch -c nombre-de-la-tarea</span></li>
             <li>Edita y guarda tus archivos.</li>
             <li>Revisa lo que has cambiado: <span class="inline-code">git diff</span> y <span class="inline-code">git
@@ -811,8 +1053,13 @@ cd REPOSITORIO</div>
             <li>Crea un commit pequeño: <span class="inline-code">git commit -m "Añade formulario de contacto"</span>
             </li>
             <li>Sube la rama: <span class="inline-code">git push -u origin nombre-de-la-tarea</span></li>
-            <li>Abre una Pull Request en GitHub.</li>
+            <li>Abre una Pull Request desde GitHub o desde la terminal con <span class="inline-code">gh pr
+                create</span>.</li>
         </ol>
+        <p>La revisión con <span class="inline-code">git diff</span> y <span class="inline-code">git status</span>
+            permite detectar cambios inesperados antes de preparar los archivos. Después, el commit debe reunir una
+            modificación coherente y la rama se comparte con <span class="inline-code">git push</span> para que pueda
+            revisarse mediante una Pull Request.</p>
         <div class="callout">
             <strong>💡 Consejo:</strong> Haz commits pequeños. Un commit debería representar un cambio coherente, no una
             mezcla de diez tareas.
@@ -906,12 +1153,45 @@ cd REPOSITORIO</div>
                     <td><span class="inline-code">git rm archivo</span></td>
                     <td>Elimina un archivo y registra la eliminación.</td>
                 </tr>
+                <tr>
+                    <td><span class="inline-code">git restore --staged archivo</span></td>
+                    <td>Saca un archivo de la <em>Staging Area</em>, pero conserva sus cambios en la carpeta de trabajo.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git rm --cached archivo</span></td>
+                    <td>Deja de seguir un archivo sin borrarlo del ordenador; resulta útil después de añadirlo a <span
+                        class="inline-code">.gitignore</span>.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git clean -nd</span></td>
+                    <td>Previsualiza los archivos y carpetas sin seguimiento que <span
+                        class="inline-code">git clean -fd</span> eliminaría.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git clean -fd</span></td>
+                    <td>Elimina archivos y carpetas sin seguimiento de la carpeta local.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git fetch</span></td>
+                    <td>Descarga información del remoto sin integrar todavía sus cambios en los archivos locales.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git branch --show-current</span></td>
+                    <td>Muestra la rama en la que estás trabajando.</td>
+                </tr>
+                <tr>
+                    <td><span class="inline-code">git check-ignore -v archivo</span></td>
+                    <td>Indica qué regla de <span class="inline-code">.gitignore</span> hace que Git ignore un archivo.</td>
+                </tr>
             </tbody>
         </table>
         <div class="callout callout-warning">
             <strong>⚠️ Cuidado:</strong> <span class="inline-code">git restore</span> y <span class="inline-code">git
                 reset</span> pueden borrar trabajo definitivamente. Antes de usarlos, revisa <span
-                class="inline-code">git status</span> y guarda una copia si tienes dudas.
+                class="inline-code">git status</span> y guarda una copia si tienes dudas. <span
+                class="inline-code">git clean -fd</span> también es destructivo: elimina archivos sin seguimiento sin
+                moverlos a la papelera. Ejecuta antes <span class="inline-code">git clean -nd</span> para revisar qué
+                se borraría.
         </div>
         <h3>5.1 Cómo usar los comandos sin perderse</h3>
         <p>Un comando suele componerse de un programa (<span class="inline-code">git</span>), una acción (<span
@@ -920,8 +1200,8 @@ cd REPOSITORIO</div>
                 class="inline-code">-</span> o <span class="inline-code">--</span>; los argumentos indican sobre qué
             archivo, rama o remoto actuar.</p>
         <div class="code-block">git add src/app.js
-git commit -m "Corrige la validación del formulario"
-git push -u origin feature/formulario</div>
+            git commit -m "Corrige la validación del formulario"
+            git push -u origin feature/formulario</div>
         <ul>
             <li><span class="inline-code">git add src/app.js</span> selecciona solo ese archivo para el próximo commit;
                 no guarda todavía el cambio en el historial.</li>
@@ -934,9 +1214,9 @@ git push -u origin feature/formulario</div>
         </ul>
         <h3>5.2 Verificar antes de confirmar o compartir</h3>
         <div class="code-block">git status
-git diff
-git diff --staged
-git log --oneline -5</div>
+            git diff
+            git diff --staged
+            git log --oneline -5</div>
         <p>La secuencia responde a cuatro preguntas: ¿en qué rama estoy y qué archivos han cambiado?, ¿qué cambios aún
             no he preparado?, ¿qué entrará en el próximo commit? y ¿cuáles son mis últimos cinco commits? Si algo no
             coincide con lo esperado, detente antes de ejecutar <span class="inline-code">commit</span> o <span
@@ -971,9 +1251,13 @@ git log --oneline -5</div>
         <h2 id="seccion-6">6. Ramas y trabajo en equipo</h2>
         <p>La rama <span class="inline-code">main</span> (o <em>master</em> en proyectos antiguos) debe mantenerse
             estable. Cada nueva funcionalidad, corrección o experimento debería hacerse en una rama propia.</p>
+        <p>Una rama es una referencia independiente dentro del historial de Git que permite desarrollar una línea de
+            trabajo sin modificar directamente la versión estable. No es una copia completa e independiente de todos
+            los archivos: representa una línea de commits desde la que puedes avanzar y cuyos cambios después puedes
+            integrar mediante una Pull Request, un <em>merge</em> o un <em>rebase</em>.</p>
         <div class="code-block">git switch main
-git pull --rebase origin main
-git switch -c feature/nombre-corto</div>
+            git pull --rebase origin main
+            git switch -c feature/nombre-corto</div>
         <table class="data-table">
             <thead>
                 <tr>
@@ -1007,16 +1291,26 @@ git switch -c feature/nombre-corto</div>
         </table>
         <h3>6.1 Mantener una rama actualizada</h3>
         <div class="code-block">git switch main
-git pull --rebase origin main
-git switch mi-rama
-git rebase main</div>
+            git pull --rebase origin main
+            git switch mi-rama
+            git rebase main</div>
         <p>Si todavía estás empezando, puedes sustituir el <span class="inline-code">rebase</span> por <span
                 class="inline-code">git merge main</span>. El rebase deja un historial más lineal, pero requiere más
-            cuidado si la rama ya se comparte con otras personas.</p>
+            cuidado si la rama ya se comparte con otras personas, porque modifica los identificadores de sus commits.
+            Como regla práctica, utiliza <span class="inline-code">rebase</span> para actualizar una rama privada que
+            solo utilizas tú. Si la rama ya se ha compartido y otras personas trabajan sobre ella, <span
+            class="inline-code">merge</span> suele ser más seguro porque no reescribe su historial.</p>
         <h3>6.2 Compartir una rama</h3>
         <div class="code-block">git push -u origin mi-rama</div>
         <h2 id="seccion-7">7. GitHub desde la web</h2>
         <h3>7.1 Crear un repositorio</h3>
+        <p>Al crear un repositorio desde la web, GitHub puede inicializarlo con archivos básicos como <span
+            class="inline-code">README.md</span>, <span class="inline-code">.gitignore</span> o <span
+            class="inline-code">LICENSE</span>. Si el proyecto todavía no existe en tu ordenador, estas opciones
+            ayudan a preparar el repositorio desde el principio. Si ya tienes una carpeta local con <span
+            class="inline-code">git init</span> y commits, es preferible crear el repositorio remoto vacío y subir
+            después tu historial local. Si inicializas ambos lados con commits distintos, tendrás que integrarlos antes
+            de poder sincronizarlos con normalidad.</p>
         <ol>
             <li>Pulsa el signo <strong>+</strong> de la esquina superior derecha y elige <em>New repository</em>.</li>
             <li>Escribe un nombre corto. Añade una descripción y decide si será público o privado.</li>
@@ -1073,19 +1367,22 @@ git rebase main</div>
             documentación. Para cambios grandes, clona el proyecto y trabaja localmente en tu editor de código.
         </div>
         <h3>7.4 Settings importantes</h3>
-        <ul>
-            <li><strong>Collaborators:</strong> invita a personas y asigna permisos.</li>
-            <li><strong>Branches:</strong> protege <span class="inline-code">main</span> y exige Pull Request,
-                revisiones o comprobaciones.</li>
-            <li><strong>Actions:</strong> revisa los flujos automáticos y sus resultados.</li>
-            <li><strong>Secrets and variables:</strong> guarda tokens para Actions; nunca los escribas en el código.
-            </li>
-            <li><strong>Pages:</strong> publica un sitio web estático desde una rama o desde Actions.</li>
-        </ul>
+        <p>La sección <em>Settings</em> reúne las opciones de administración del repositorio. En <em>Collaborators</em>
+            se gestionan las personas que pueden acceder al proyecto y sus permisos. En <em>Branches</em> puedes
+            proteger ramas como <span class="inline-code">main</span> y exigir Pull Requests, revisiones o
+            comprobaciones automáticas antes de fusionar cambios. Esta protección no impide modificar el repositorio:
+            obliga a que los cambios sigan las reglas configuradas.</p>
+        <p>En <em>Actions</em> puedes revisar los flujos automáticos y sus resultados. En <em>Secrets and variables</em>
+            se guardan credenciales que utilizarán los flujos sin escribirlas en el código. Finalmente, <em>Pages</em>
+            permite publicar un sitio web estático a partir de una rama o de un flujo de Actions.</p>
         <h2 id="seccion-8">8. Pull requests y revisión de código</h2>
         <p>Una Pull Request (PR) es una conversación sobre un cambio antes de incorporarlo a otra rama. No es solo un
             botón de "fusionar": permite revisar, comentar, probar y documentar la decisión.</p>
         <h3>8.1 Crear una PR de calidad</h3>
+        <p>Una PR de calidad facilita que otra persona entienda el cambio sin tener que reconstruir todo el contexto.
+            El título y la descripción deben dejar claro el objetivo, la forma de probarlo y, si es necesario, el
+            resultado visual. Si la PR resuelve una Issue, puedes utilizar palabras clave como <span
+            class="inline-code">Closes #12</span> para que GitHub la cierre automáticamente al fusionarla.</p>
         <ol>
             <li>Sube tu rama a GitHub.</li>
             <li>Pulsa <em>Compare & pull request</em> o abre la pestaña <em>Pull requests → New pull request</em>.</li>
@@ -1097,6 +1394,11 @@ git rebase main</div>
             <li>Revisa los checks automáticos y responde a los comentarios.</li>
         </ol>
         <h3>8.2 Revisar una PR</h3>
+        <p>Para revisar una Pull Request, comienza leyendo su título y descripción para entender el objetivo. Después
+            analiza cada modificación en <em>Files changed</em>, comprobando el contexto, los archivos incluidos, las
+            pruebas y los posibles riesgos. En una línea concreta puedes dejar un comentario, hacer una sugerencia de
+            código o iniciar una conversación; revisar no consiste únicamente en comprobar si el resultado final parece
+            correcto.</p>
         <ul>
             <li><strong>Files changed:</strong> inspecciona cada cambio, no solo el resultado final.</li>
             <li><strong>Conversation:</strong> lee el contexto y las decisiones anteriores.</li>
@@ -1107,19 +1409,36 @@ git rebase main</div>
             <strong>Regla de etiqueta:</strong> Los comentarios deben ser concretos y respetuosos. Distingue siempre
             entre un error que bloquea la integración (debe corregirse) y una simple sugerencia de estilo.
         </div>
+        <p>Al terminar la revisión, puedes elegir entre tres estados. <em>Comment</em> deja observaciones o preguntas
+            sin aprobar ni bloquear por sí solo. <em>Approve</em> indica que los cambios cumplen los criterios de
+            revisión. <em>Request changes</em> solicita modificaciones antes de fusionar la PR. El efecto de estos
+            estados depende de los permisos del revisor y de las reglas de protección configuradas en el repositorio.</p>
         <h3>8.3 Fusionar una PR</h3>
-        <p>Cuando las revisiones y comprobaciones sean correctas, GitHub ofrece <em>Merge pull request</em>, <em>Squash
-                and merge</em> o <em>Rebase and merge</em>. <strong>Squash and merge</strong> suele ser fácil de
-            mantener porque convierte todos los commits intermedios de la PR en un solo commit limpio en <span
-                class="inline-code">main</span>.</p>
+        <p>Cuando las revisiones y comprobaciones sean correctas, GitHub ofrece varias formas de integrar la PR.
+            <em>Merge pull request</em> conserva los commits de la rama y añade un commit de fusión en la rama de
+            destino. Mantiene el contexto de que dos líneas de trabajo se integraron, aunque puede hacer el historial
+            más voluminoso.</p>
+        <p><em>Squash and merge</em> combina los commits de la Pull Request en un único commit antes de incorporarlo a
+            <span class="inline-code">main</span>. Es útil cuando la rama contiene commits intermedios, correcciones o
+            mensajes que no aportan valor al historial principal.</p>
+        <p><em>Rebase and merge</em> recoloca los commits de la Pull Request sobre la versión actual de <span
+            class="inline-code">main</span> y los incorpora sin crear un commit de fusión. El resultado suele ser
+            lineal, pero modifica los identificadores de los commits y requiere que la rama pueda aplicarse sin
+            conflictos.</p>
         <h2 id="seccion-9">9. Conflictos y cómo resolverlos</h2>
-        <p>Hay conflicto cuando dos ramas modifican la misma parte de un archivo y Git no puede decidir qué versión
-            conservar. Git marcará el archivo así:</p>
+        <p>Git puede combinar automáticamente los cambios cuando afectan a archivos o líneas diferentes. Aparece un
+            conflicto cuando dos ramas modifican la misma zona de un archivo, cuando una rama modifica un archivo que
+            la otra ha eliminado o cuando Git no puede determinar de forma segura qué resultado debe conservar. Git
+            marcará el archivo para que decidas cómo integrarlo:</p>
         <div class="code-block">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-contenido de tu rama
-=======
-contenido de la otra rama
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; otra-rama</div>
+            contenido de tu rama
+            =======
+            contenido de la otra rama
+            &gt;&gt;&gt;&gt;&gt;&gt;&gt; otra-rama</div>
+        <p>Una Pull Request puede mostrar el aviso <em>This branch has conflicts that must be resolved</em> cuando
+            GitHub no puede combinar automáticamente la rama con su destino. Lo más recomendable es actualizar la rama
+            y resolver el conflicto localmente, donde puedes revisar los archivos, ejecutar las pruebas y comprobar el
+            resultado antes de subir la solución.</p>
         <h3>9.1 Pasos para resolver un conflicto</h3>
         <ol>
             <li>Ejecuta <span class="inline-code">git status</span> para ver los archivos en conflicto.</li>
@@ -1133,10 +1452,14 @@ contenido de la otra rama
                     class="inline-code">git rebase --continue</span> si era un rebase.</li>
             <li>Ejecuta las pruebas antes de subir los cambios.</li>
         </ol>
+        <p>Los editores como VS Code pueden detectar las marcas y ofrecer opciones como <em>Accept Current Change</em>,
+            <em>Accept Incoming Change</em> y <em>Accept Both Changes</em>. Estas opciones ayudan a eliminar las
+            marcas, pero no sustituyen la revisión manual: después de utilizarlas debes comprobar que el código
+            mantiene el comportamiento esperado y ejecutar las pruebas.</p>
         <div class="code-block">git status
-git diff
-git add archivo-en-conflicto
-git commit -m "Resuelve conflicto en archivo"</div>
+            git diff
+            git add archivo-en-conflicto
+            git commit -m "Resuelve conflicto en archivo"</div>
         <div class="callout callout-warning">
             <strong>Cancelar:</strong> Si te has metido en un merge o rebase y no sabes continuar, puedes abortar con:
             <span class="inline-code">git merge --abort</span> o <span class="inline-code">git rebase --abort</span>.
@@ -1155,39 +1478,47 @@ git commit -m "Resuelve conflicto en archivo"</div>
             <li>GitHub mostrará la URL pública del sitio en esa misma pantalla.</li>
         </ol>
         <h3>10.2 Con GitHub CLI</h3>
-        <div class="code-block">gh repo create mi-proyecto --public --source=. --remote=origin --push</div>
-        <p>Para consultar el repositorio actual en la web: <span class="inline-code">gh repo view --web</span></p>
+        <p>Crear un repositorio con <span class="inline-code">gh repo create</span> y publicarlo con GitHub Pages son
+            operaciones diferentes. GitHub CLI puede ayudarte a consultar el repositorio desde la terminal con <span
+            class="inline-code">gh repo view --web</span>, pero la publicación del sitio se configura en <em>Settings
+            → Pages</em> o mediante un flujo de GitHub Actions, como se explica en el apartado anterior.</p>
         <h2 id="seccion-11">11. Buenas prácticas y seguridad</h2>
-        <ul>
-            <li><strong>No subas contraseñas</strong>, tokens, claves privadas, archivos <span
-                    class="inline-code">.env</span> ni datos personales.</li>
-            <li>Usa <span class="inline-code">.gitignore</span> desde el principio. Si un secreto ya se subió, revócalo:
-                borrarlo del archivo no lo invalida en el historial.</li>
-            <li>Activa 2FA en GitHub y usa contraseñas únicas.</li>
-            <li>Protege <span class="inline-code">main</span> y exige Pull Requests en proyectos de equipo.</li>
-            <li>Revisa dependencias y actualizaciones de seguridad que GitHub sugiere.</li>
-            <li>Mantén el README con instalación, uso, estructura y licencia.</li>
-            <li>Usa nombres de rama consistentes y haz commits pequeños.</li>
-            <li>Prueba siempre el proyecto localmente antes de crear la PR.</li>
-        </ul>
+            <p>No subas contraseñas, tokens, claves privadas, certificados, archivos <span
+                class="inline-code">.env</span> ni datos personales al repositorio. El archivo <span
+                class="inline-code">.gitignore</span> ayuda a evitar que se añadan por accidente, pero debe configurarse
+                antes del primer <span class="inline-code">git add</span>. Si un secreto llega a publicarse, no basta con
+                borrar el archivo en un commit posterior: el valor puede seguir presente en el historial. Revoca o cambia
+                la credencial inmediatamente y revisa el historial para retirar el archivo si fuera necesario. También
+                conviene activar 2FA en GitHub y utilizar contraseñas únicas.</p>
+            <p>Un flujo de trabajo seguro utiliza ramas descriptivas, commits pequeños y comprobaciones locales antes de
+                subir los cambios. Las ramas <span class="inline-code">feature/</span>, <span
+                class="inline-code">fix/</span> y <span class="inline-code">docs/</span> permiten separar tareas y
+                facilitan la revisión. En proyectos de equipo, la rama <span class="inline-code">main</span> debería estar
+                protegida para impedir cambios directos y exigir una Pull Request con revisiones o pruebas automáticas
+                antes de fusionar.</p>
+            <p>El archivo <span class="inline-code">README.md</span> debe explicar cómo instalar, ejecutar y utilizar el
+                proyecto, además de indicar su estructura y requisitos principales. Las dependencias también necesitan
+                mantenimiento: conviene revisar las actualizaciones y los avisos de seguridad que GitHub muestre.
+                Dependabot puede detectar dependencias vulnerables o desactualizadas según la configuración del repositorio
+                y proponer actualizaciones mediante Pull Requests.</p>
         <div class="flex-cols">
             <div>
                 <h3 style="margin-top: 0;">11.1 Ejemplo de .gitignore</h3>
                 <div class="code-block"># Dependencias
-node_modules/
-.venv/
+                    node_modules/
+                    .venv/
 
-# Secretos y config local
-.env
-.env.*
+                    # Secretos y config local
+                    .env
+                    .env.*
 
-# Archivos del sistema
-.DS_Store
-.vscode/
+                    # Archivos del sistema
+                    .DS_Store
+                    .vscode/
 
-# Construcciones
-dist/
-build/</div>
+                    # Construcciones
+                    dist/
+                    build/</div>
             </div>
             <div>
                 <h3 style="margin-top: 0;">11.2 Licencias</h3>
@@ -1213,14 +1544,22 @@ build/</div>
                     </td>
                 </tr>
                 <tr>
+                    <td>Muchos archivos <span class="inline-code">Untracked</span></td>
+                    <td>Comprueba que ejecutaste <span class="inline-code">git init</span> en la carpeta correcta y
+                        revisa <span class="inline-code">.gitignore</span>. Antes de borrar archivos sin seguimiento,
+                        utiliza <span class="inline-code">git clean -nd</span> para previsualizar el resultado.</td>
+                </tr>
+                <tr>
                     <td><span class="inline-code">Please tell me who you are</span></td>
                     <td>Configura tu <span class="inline-code">user.name</span> y <span
                             class="inline-code">user.email</span> (Sección 2.3).</td>
                 </tr>
                 <tr>
                     <td><span class="inline-code">rejected / non-fast-forward</span></td>
-                    <td>Primero trae cambios: <span class="inline-code">git pull --rebase origin rama</span>; después
-                        vuelve a hacer push.</td>
+                    <td>Comprueba que estás en la rama correcta y que no tienes cambios locales pendientes. Después trae
+                        los cambios con <span class="inline-code">git pull --rebase origin rama</span> y vuelve a hacer
+                        push. Si tienes trabajo sin guardar, haz un commit o utiliza <span
+                        class="inline-code">git stash</span> antes de integrar.</td>
                 </tr>
                 <tr>
                     <td><span class="inline-code">remote origin already exists</span></td>
@@ -1245,39 +1584,66 @@ build/</div>
         </table>
         <h3>12.1 Deshacer cambios con seguridad</h3>
         <div class="code-block">git restore archivo # descarta cambios locales no guardados
-git restore --staged archivo # saca un archivo del staging (un-add)
-git revert ID_DEL_COMMIT # crea un commit nuevo que deshace otro</div>
+            git restore --staged archivo # saca un archivo del staging (un-add)
+            git revert ID_DEL_COMMIT # crea un commit nuevo que deshace otro</div>
         <p>Para deshacer un commit que <strong>ya está compartido en GitHub</strong>, es mucho más seguro usar <span
                 class="inline-code">git revert</span> (que avanza el historial) que intentar reescribirlo con un reset
             destructivo.</p>
         <h2 id="seccion-13">13. Chuleta final y reto práctico</h2>
         <div class="flex-cols">
             <div>
-                <h3 style="margin-top: 0;">Flujo normal</h3>
-                <div class="code-block">git switch main
-git pull --rebase origin main
-git switch -c feature/mi-tarea
-
-# editar archivos
-git status
-git add .
-git commit -m "Describe el cambio"
-git push -u origin feature/mi-tarea
-
-# abrir PR en GitHub</div>
+                <h3 style="margin-top: 0;">1. Iniciar o clonar</h3>
+                <div class="code-block">git init
+                    # revisar .gitignore
+                    git status
+                    git add .
+                    git commit -m "Primer commit"
+                    gh repo create nombre --public --source=. --remote=origin --push
+                    gh repo clone USUARIO/REPO</div>
+                <p>Revisa <span class="inline-code">.gitignore</span> antes de <span class="inline-code">git add
+                    .</span>.</p>
             </div>
             <div>
-                <h3 style="margin-top: 0;">Comandos GitHub CLI</h3>
+                <h3 style="margin-top: 0;">2. Flujo diario</h3>
+                <div class="code-block">git switch main
+                    git pull --rebase origin main
+                    git switch -c feature/mi-tarea
+
+                    git status
+                    git diff
+                    git add .
+                    git diff --staged
+                    git commit -m "Describe el cambio"
+                    git push -u origin feature/mi-tarea
+
+                    gh pr create</div>
+            </div>
+            <div>
+                <h3 style="margin-top: 0;">3. Zonas y emergencias</h3>
+                <div class="code-block">git restore archivo
+                    git restore --staged archivo
+                    git rm --cached archivo
+                    git stash
+                    git stash pop
+                    git commit --amend
+                    git revert ID_DEL_COMMIT
+                    git merge --abort
+                    git rebase --abort</div>
+            </div>
+            <div>
+                <h3 style="margin-top: 0;">4. GitHub CLI</h3>
                 <div class="code-block">gh auth login
-gh repo create
-gh repo clone USUARIO/REPO
-gh repo view --web
-gh pr create
-gh pr list
-gh pr view 123 --web
-gh issue create
-gh issue list
-gh workflow list</div>
+                    gh auth status
+                    gh auth logout
+                    gh repo view --web
+                    gh pr create
+                    gh pr list
+                    gh pr view ID --web
+                    gh issue create
+                    gh issue list
+                    gh workflow list
+                    gh run list
+                    gh run watch</div>
             </div>
         </div>
         <div class="callout no-print" style="margin-top: 20px;">
@@ -1344,4 +1710,5 @@ gh workflow list</div>
         });
     </script>
 </body>
+
 </html>
