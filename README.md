@@ -55,7 +55,7 @@ Después, abre `index.html` con tu navegador favorito.
 - **Errores frecuentes** y formas seguras de deshacer cambios.
 - **Reto práctico final** para comprobar lo aprendido.
 
-## 🧭 Contenido del manual
+## Contenido del manual
 
 | Sección | Tema |
 |:--:|---|
@@ -73,16 +73,16 @@ Después, abre `index.html` con tu navegador favorito.
 | 12 | Errores frecuentes |
 | 13 | Chuleta final y reto práctico |
 
-## 🛠️ Características
+## Características
 
 El manual está construido como una página web independiente y ligera. En la versión principal, todo el contenido se encuentra en `index.html`:
 
-- 🌗 **Modo claro y modo oscuro** con preferencia guardada en el navegador.
-- 📋 **Botón para copiar** los bloques de código.
-- 🖨️ **Diseño preparado para imprimir o guardar como PDF**.
-- 🔗 **Índice navegable** para saltar rápidamente entre secciones.
-- 📱 **Diseño responsive** para consultarlo en distintos tamaños de pantalla.
-- 🎨 **Interfaz limpia** con ejemplos, avisos y tablas de referencia.
+- **Modo claro y modo oscuro** con preferencia guardada en el navegador.
+- **Botón para copiar** los bloques de código.
+- **Diseño preparado para imprimir o guardar como PDF**.
+- **Índice navegable** para saltar rápidamente entre secciones.
+- **Diseño responsive** para consultarlo en distintos tamaños de pantalla.
+- **Interfaz limpia** con ejemplos, avisos y tablas de referencia.
 
 La rama [`refactor/separa-css-javascript`](https://github.com/mikeaprilee/Manual_Git-GitHub/tree/refactor/separa-css-javascript)
 conserva una alternativa del mismo manual con los archivos separados:
@@ -127,7 +127,7 @@ git push -u origin mi-tarea
 
 Después podrás abrir una **Pull Request** en GitHub para revisar e integrar el cambio.
 
-## 👥 ¿Para quién es?
+## ¿Para quién es?
 
 Este manual es especialmente útil para:
 
