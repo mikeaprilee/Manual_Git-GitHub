@@ -15,7 +15,7 @@
 
 ## 👋 Bienvenido
 
-Este repositorio contiene un manual práctico de **Git y GitHub** pensado para aprender haciendo. Explica los conceptos con ejemplos de terminal, recomendaciones sencillas y un flujo de trabajo que puedes aplicar desde tu primer proyecto.
+Este repositorio contiene un manual práctico de **Git y GitHub** pensado para aprender haciendo. Explica los conceptos con ejemplos de terminal, recomendaciones sencillas y un flujo de trabajo que puedes aplicar desde tu primer proyecto. También diferencia el trabajo local con Git de la gestión de GitHub mediante GitHub CLI (`gh`).
 
 La idea fundamental es:
 
@@ -45,12 +45,13 @@ Después, abre `index.html` con tu navegador favorito.
 - **Explicaciones desde cero** sobre Git, GitHub, repositorios, commits, ramas y remotos.
 - **Preparación inicial**: instalación de Git, configuración de identidad y autenticación.
 - **GitHub CLI (`gh`)** para trabajar con repositorios, issues, pull requests y acciones desde la terminal.
-- **Primer proyecto paso a paso**, tanto empezando desde una carpeta local como clonando un repositorio existente.
-- **Chuleta de comandos esenciales**: `status`, `add`, `commit`, `log`, `branch`, `switch`, `merge`, `pull` y `push`.
-- **Trabajo en equipo** con ramas, pull requests, revisión de código y buenas prácticas.
-- **Resolución de conflictos** con ejemplos de merge y rebase.
+- **Zonas de Git y archivos locales**: `Working Tree`, `Staging Area`, repositorio local, archivos `Untracked`, `Modified` y uso de `.gitignore`.
+- **Primer proyecto paso a paso**, tanto empezando desde una carpeta local con `gh repo create` como clonando un repositorio existente.
+- **Chuleta de comandos esenciales**: `status`, `add`, `commit`, `log`, `diff`, `restore`, `stash`, `branch`, `switch`, `merge`, `fetch`, `pull` y `push`.
+- **Trabajo en equipo** con ramas, pull requests, estados de revisión, tipos de fusión y buenas prácticas.
+- **Resolución de conflictos** con ejemplos de merge, rebase y herramientas visuales del editor.
 - **Publicación con GitHub Pages** para proyectos web estáticos.
-- **Seguridad y organización**: `.gitignore`, protección de `main`, 2FA, secretos y licencias.
+- **Seguridad y organización**: `.gitignore`, protección de `main`, 2FA, secretos, dependencias y licencias.
 - **Errores frecuentes** y formas seguras de deshacer cambios.
 - **Reto práctico final** para comprobar lo aprendido.
 
@@ -74,7 +75,7 @@ Después, abre `index.html` con tu navegador favorito.
 
 ## 🛠️ Características
 
-El manual está construido como una página web independiente y ligera:
+El manual está construido como una página web independiente y ligera. En la versión principal, todo el contenido se encuentra en `index.html`:
 
 - 🌗 **Modo claro y modo oscuro** con preferencia guardada en el navegador.
 - 📋 **Botón para copiar** los bloques de código.
@@ -82,6 +83,25 @@ El manual está construido como una página web independiente y ligera:
 - 🔗 **Índice navegable** para saltar rápidamente entre secciones.
 - 📱 **Diseño responsive** para consultarlo en distintos tamaños de pantalla.
 - 🎨 **Interfaz limpia** con ejemplos, avisos y tablas de referencia.
+
+La rama [`refactor/separa-css-javascript`](https://github.com/mikeaprilee/Manual_Git-GitHub/tree/refactor/separa-css-javascript)
+conserva una alternativa del mismo manual con los archivos separados:
+
+- `index.html` para la estructura y el contenido.
+- `styles.css` para los estilos.
+- `script.js` para la funcionalidad interactiva.
+
+Esta rama se mantiene como alternativa independiente y no sustituye a `main`. Para consultarla localmente:
+
+```bash
+git switch refactor/separa-css-javascript
+```
+
+Para volver a la versión original en un único archivo:
+
+```bash
+git switch main
+```
 
 ## 📌 Primer flujo recomendado
 
@@ -123,10 +143,15 @@ No hace falta experiencia previa: los conceptos se presentan de forma progresiva
 
 ```text
 Manual_Git-GitHub/
-│   └── index.html    # Manual completo e interactivo
-│   └── LICENSE       # Licencia MIT
+├── index.html        # Manual completo e interactivo
+├── styles.css        # Estilos en la rama separada
+├── script.js         # JavaScript en la rama separada
+├── LICENSE           # Licencia MIT
 └── README.md         # Esta presentación
 ```
+
+En `main`, `index.html` contiene también el CSS y el JavaScript. En
+`refactor/separa-css-javascript`, esos bloques se encuentran en `styles.css` y `script.js`.
 
 ## 🤝 Contribuir
 
@@ -135,7 +160,7 @@ Las mejoras son bienvenidas. Si encuentras un error o quieres proponer una expli
 1. Crea un *fork* del repositorio.
 2. Crea una rama: `git switch -c mejora-del-manual`.
 3. Realiza cambios pequeños y descriptivos.
-4. Comprueba que `index.html` sigue abriéndose correctamente.
+4. Comprueba que `index.html` sigue abriéndose correctamente y que sus recursos externos cargan si trabajas en la rama separada.
 5. Abre una Pull Request explicando qué has mejorado.
 
 También puedes abrir una [issue](https://github.com/mikeaprilee/Manual_Git-GitHub/issues) para proponer contenidos o comunicar un problema.
@@ -149,5 +174,5 @@ Este proyecto se distribuye bajo la [licencia MIT](LICENSE). Puedes utilizar, ad
 <p align="center">
   Hecho con ☕, HTML y muchas ganas de aprender.
   <br>
-  <a href="./Manual/index.html"><strong>👉 Empieza a leer el manual</strong></a>
+  <a href="./index.html"><strong>👉 Empieza a leer el manual</strong></a>
 </p>
