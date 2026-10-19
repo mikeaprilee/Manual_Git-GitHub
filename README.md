@@ -1,5 +1,4 @@
 # Manual práctico de Git y GitHub
-<a href="https://mikeaprilee.github.io/Manual_Git-GitHub/"> Link de la página</a>
 
 > Una guía visual, clara y directa para aprender a versionar proyectos, colaborar en equipo y publicar en GitHub.
 
