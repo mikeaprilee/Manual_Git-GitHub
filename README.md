@@ -71,7 +71,7 @@ Después, abre `index.html` con tu navegador favorito.
 | 10 | Publicar un proyecto y GitHub Pages |
 | 11 | Buenas prácticas y seguridad |
 | 12 | Errores frecuentes |
-| 13 | Chuleta final y reto práctico |
+| 13 | Chuleta final |
 
 ## 🛠️ Características
 
